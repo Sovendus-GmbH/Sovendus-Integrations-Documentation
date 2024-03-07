@@ -1,4 +1,4 @@
-Connect Klaviyo
+# Connect Klaviyo
 
 1. Create an API key with Full Access for Lists, Profiles and Subscriptions, see here: [How to create a private API key | Klaviyo Help Center ](https://help.klaviyo.com/hc/en-us/articles/7423954176283)
 
