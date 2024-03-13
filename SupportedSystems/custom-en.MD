@@ -11,12 +11,12 @@ An URL you provide to transfer the leads/newsletter sign-ups could look like thi
 `https://yourdomain.com/subscribe?salutation=%consumer_salutation%&gender=%consumer_gender%&firstname=%consumer_firstname%&lastname=%consumer_lastname%&email=%consumer_email%&sov_id=%newsletter_history_id%&complianceip=%compliance_ip%&compliancetext=%compliance_text%&compliancetimestamp=%compliance_timestamp%`
 
 > [!ERROR]
-> IMPORTANT: To ensure a secure connection, the HTTPS protocol (with a valid certificate) must be used to transfer the data!
+> To ensure a secure connection, the HTTPS protocol (with a valid certificate) must be used to transfer the data!
 
 ### Transmission parameters
 
 > [!WARNING]
-> Note that parameters can have different names e.g. firstname could be first_name or any other name.
+> Parameters can have different names e.g. firstname could be first_name or any other name.
 
 The URL you provide should contain the following placeholders to allow complete transfer of the customer data:
 
@@ -35,7 +35,7 @@ The URL you provide should contain the following placeholders to allow complete 
 To ensure your data protection interests, the following transmission parameters %newsletter_history_id%, %compliance_ip%, %compliance_text% and %compliance_timestamp% must be processed in your system.
 
 > [!ERROR]
-> Attention: The %compliance_text% and the %compliance_timestamp% are base64 encoded to avoid transmission errors!
+> The %compliance_text% and the %compliance_timestamp% are base64 encoded to avoid transmission errors!
 
 ### Example request from our system
 
@@ -66,7 +66,7 @@ To prevent unauthorized access to your interface, access to the URL should be se
 `https://username:password@yourdomain.com/subscribe?...`
 
 > [!ERROR]
-> IMPORTANT: Username and password for authentication should be submitted to Sovendus in a secure way.
+> Username and password for authentication should be submitted to Sovendus in a secure way.
 
 ### Return values
 
@@ -109,12 +109,12 @@ https://signup.api.com/newsletter_signup
 ```
 
 > [!ERROR]
-> IMPORTANT: To ensure a secure connection, the HTTPS protocol (with a valid certificate) must be used to transfer the data!
+> To ensure a secure connection, the HTTPS protocol (with a valid certificate) must be used to transfer the data!
 
 ### Transmission parameters
 
 > [!WARNING]
-> Note that parameters can have different names e.g., firstname could be first_name or any other name.
+> Parameters can have different names e.g., firstname could be first_name or any other name.
 
 The example request you provide should contain the following placeholders, to allow complete transfer of the customer data:
 
@@ -196,7 +196,7 @@ To prevent unauthorized access to your interface, we support authentication toke
 | api_key_header_name | YOUR_API_PRIVATE_KEY |
 
 > [!ERROR]
-> IMPORTANT: Username and password for authentication should be submitted to Sovendus in a secure way.
+> Username and password for authentication should be submitted to Sovendus in a secure way.
 
 ### Return values
 
