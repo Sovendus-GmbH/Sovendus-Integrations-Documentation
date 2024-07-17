@@ -1,4 +1,4 @@
-# Connect Copernica
+# Connect Connectif
 
 1. Sign up to https://leadthing.dev and purchase a subscription
 
