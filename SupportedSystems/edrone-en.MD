@@ -6,4 +6,4 @@
 
 3. Get your Edrone APP id
 
-4. Send the Edrone APP id and the leadthing api key to Sovendus
+4. Send the Newsletter System name, the Edrone APP id and the leadthing api key to Sovendus

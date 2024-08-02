@@ -8,4 +8,4 @@
 
 4. Get the list id where the leads should be added to: Click on Recipients → click on the list → click on the tab Settings → General and copy the List ID
 
-5. Send the CleverReach Client ID, Client Secret, list ID and the leadthing api key to Sovendus
+5. Send the Newsletter System name, the CleverReach Client ID, Client Secret, list ID and the leadthing api key to Sovendus

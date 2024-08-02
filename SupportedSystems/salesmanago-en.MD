@@ -12,4 +12,4 @@
 
 6. The tag name(s) which should be added to the each contact
 
-7. Send the SalesManago client id, sha, API key, contact owner, domain, tag name(s) and the leadthing api key to Sovendus
+7. Send the Newsletter System name, the SalesManago client id, the sha, the API key, the contact owner, the domain, the tag name(s) and the leadthing api key to Sovendus

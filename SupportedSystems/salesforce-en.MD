@@ -12,4 +12,4 @@
 
 6. Get the Salesforce account id
 
-7. Send the Salesforce client id, client secret, list id, subdomain, account id and the leadthing api key to Sovendus
+7. Send the Newsletter System name, the Salesforce client id, the client secret, the list id, the subdomain, the account id and the leadthing api key to Sovendus

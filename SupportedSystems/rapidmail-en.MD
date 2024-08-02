@@ -4,4 +4,4 @@
 
 2. Get the list / receiver list id where the leads should be added to
 
-3. Send the API user/password and the list ID to Sovendus
+3. Send the Newsletter System name, the API user/password and the list ID to Sovendus

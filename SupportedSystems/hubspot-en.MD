@@ -4,4 +4,4 @@
 
 2. Get the subscription list id where the leads should be added to
 
-3. Send the API token to Sovendus
+3. Send the Newsletter System name and the API token to Sovendus

@@ -6,4 +6,4 @@
 
 3. Get the list/audience id where the leads should be added, as described here: [Find audience id - Mailchimp](https://mailchimp.com/help/find-audience-id/)
 
-4. Send the API key, server prefix and list id to Sovendus
+4. Send the Newsletter System name, the API key, the server prefix and the list id to Sovendus

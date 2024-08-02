@@ -8,4 +8,4 @@
 
 4. Get the name of the list where the leads should be added to
 
-5. Send the Sailthru API key, secret, list id and the leadthing api key to Sovendus
+5. Send the Newsletter System name, the Sailthru API key, the secret, the list id and the leadthing api key to Sovendus

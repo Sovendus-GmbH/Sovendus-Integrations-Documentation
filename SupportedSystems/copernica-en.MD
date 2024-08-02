@@ -6,4 +6,4 @@
 
 3. Get the name of the fields for first name, last name, email, opt in status and eventual other fields you want to fill out.
 
-4. Send the API key, database id and the name of the fields to Sovendus
+4. Send the Newsletter System name, the API key, the database id and the name of the fields to Sovendus

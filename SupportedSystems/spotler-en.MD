@@ -6,4 +6,4 @@
 
 3. Create an API key: We need the consumer key and consumer secret
 
-4. Send the Spotler consumer key, consumer secret and the leadthing api key to Sovendus
+4. Send the Newsletter System name, the Spotler consumer key, the consumer secret and the leadthing api key to Sovendus

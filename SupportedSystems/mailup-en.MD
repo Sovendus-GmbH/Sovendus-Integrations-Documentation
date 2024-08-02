@@ -10,4 +10,4 @@
 
 5. Get the list id where the leads should be added to.
 
-6. Send the Mailup client id, client secret, username, passwor list id and the leadthing api key to Sovendus
+6. Send the Newsletter System name, the Mailup client id, the client secret, the username, the password list id and the leadthing api key to Sovendus

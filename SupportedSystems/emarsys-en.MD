@@ -8,4 +8,4 @@
 
 4. Get the contact list id where the leads should be added to
 
-5. Send the API key and contact list id to Sovendus
+5. Send the Newsletter System name, the API key and the contact list id to Sovendus

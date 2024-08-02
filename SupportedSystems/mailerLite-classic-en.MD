@@ -4,4 +4,4 @@
 
 2. Get the group name where the leads should be added to.
 
-3. Send the API key and group name to Sovendus
+3. Send the Newsletter System name, the API key and the group name to Sovendus

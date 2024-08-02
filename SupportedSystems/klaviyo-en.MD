@@ -4,4 +4,4 @@
 
 2. Get the list id where the leads should be added to, see here: [How to find a list ID | Klaviyo Help Center](https://help.klaviyo.com/hc/en-us/articles/115005078647) 
 
-2. Send the API key and the list ID to Sovendus
+2. Send the Newsletter System name, the API key and the list ID to Sovendus

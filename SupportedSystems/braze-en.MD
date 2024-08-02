@@ -6,4 +6,4 @@
 
 3. Get the Subscription group id where the leads should land
 
-4. Send the URL, API key and the subscription group id to Sovendus
+4. Send the Newsletter System name, the URL, the API key and the subscription group id to Sovendus

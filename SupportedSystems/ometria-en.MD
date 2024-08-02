@@ -4,4 +4,4 @@
 
 2. Get the list / segment id where the leads should be added to
 
-3. Send the API key and the list id to Sovendus
+3. Send the Newsletter System name, the API key and the list id to Sovendus

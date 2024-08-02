@@ -10,4 +10,4 @@
 
 5. Get the id of the group where the leads should be added to
 
-6. Send the leadthing API key and the Mapp username, password, instance domain and group id to Sovendus
+6. Send the Newsletter System name, the leadthing API key, the Mapp username, the password, the instance domain and the group id to Sovendus

@@ -10,4 +10,4 @@
 
 5. Get the contact list id where the leads should be added to
 
-6. Send the Expert Sender API key, Domain, contact list id and leadthing.dev API key to Sovendus
+6. Send the Newsletter System name, the Expert Sender API key, the Domain, the contact list id and the leadthing API key to Sovendus

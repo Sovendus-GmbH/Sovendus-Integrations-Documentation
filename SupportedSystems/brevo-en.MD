@@ -4,4 +4,4 @@
 
 2. Get the id of the list where leads should be added to. Go to contacts → lists. The id can be found in the id column
 
-3. Send the Newsletter System name, the API key and list id to Sovendus
+3. Send the Newsletter System name, the API key and the list id to Sovendus

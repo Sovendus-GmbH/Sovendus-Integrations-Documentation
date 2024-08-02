@@ -6,4 +6,4 @@
 
 3. Create an API key with the permission contacts write as described here: https://api-docs.connectif.cloud/connectif-api/guides/authentication
 
-4. Send the API key to Sovendus
+4. Send the Newsletter System name and the API key to Sovendus
