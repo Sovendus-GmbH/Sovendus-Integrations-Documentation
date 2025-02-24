@@ -13,3 +13,5 @@
 6. Get the contact list id where the leads should be added to
 
 7. Send the Newsletter System name, the API key, the name of the fields with example values and the contact list id to Sovendus
+
+8. Once we confirmed that the setup is done properly, you can adjust the permission of the API key to just "contacts read" and delete the sovendus user as we dont need access to the backend anymore.
