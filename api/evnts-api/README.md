@@ -40,7 +40,7 @@ window.addEventListener("message", (event) => {
 
 ## 📊 Supported Events
 
-### 🎯 Overlay Events (`sovendus:overlay`)
+### 🎯 Overlay Events (sovendus:overlay)
 
 | Action | Payload | Description |
 |--------|---------|-------------|
@@ -48,7 +48,7 @@ window.addEventListener("message", (event) => {
 | `collapse` | `{action: "collapse", version: "v1"}` | Overlay is collapsed to floating button |
 | `expand` | `{action: "expand", version: "v1"}` | Overlay is shown in expanded form |
 
-### 🔗 Integration Events (`sovendus:integration`)
+### 🔗 Integration Events (sovendus:integration)
 
 | Action | Payload | Description |
 |--------|---------|-------------|
