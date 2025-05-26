@@ -3,6 +3,7 @@
 This documentation is for mobile Apps where the order success page is based on a WebView.
 
 1. Add the following HTML code to your HTML based order success page:
+
    ```html
    <!DOCTYPE html>
    <html>
@@ -45,9 +46,10 @@ This documentation is for mobile Apps where the order success page is based on a
      </body>
    </html>
    ```
+
 2. Make sure all variables in the HTML starting with a $ are defined
    [Click here for detailed information on the parameters and which ones are required.](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Parameter)
-   
+
 4. In case you choose the inline Sovendus banner make sure the <div id="sovendus-voucher-banner"></div> is placed where you want the banner to appear. In case you use the sticky banner, the position of the div doesnt matter.
 5. Clicks on external links need to be prevented and forwarded to the native browser. Make sure the navigation requests of following url patterns are prevented:
 
