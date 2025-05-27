@@ -10,14 +10,14 @@ Configure your Content Security Policy (CSP) headers to ensure Sovendus Voucher 
 
 Configure these CSP directives to allow Sovendus functionality:
 
-| Directive | Required Values | Purpose |
-|-----------|----------------|---------|
-| **connect-src** | `https://*.sovendus.com https://www.sovendus-benefits.com https://www.sovendus-campaign.com https://www.sovendus-connect.com https://www.sovendus-network.com` | API calls and data connections |
-| **font-src** | `https://*.sovendus.com` | Custom font loading |
-| **frame-src** | `https://*.sovendus.com https://www.sovendus-benefits.com https://www.sovendus-campaign.com https://www.sovendus-connect.com https://www.sovendus-network.com` | Iframe embedding |
-| **img-src** | `data: https://*.sovendus.com` | Image and icon loading |
-| **script-src** | `'unsafe-inline' https://*.sovendus.com` | JavaScript execution |
-| **style-src** | `'unsafe-inline' https://*.sovendus.com` | CSS styling |
+| Directive   | Value                                                                                                                                                         |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| connect-src | https://\*.sovendus.com <https://www.sovendus-benefits.com> <https://www.sovendus-campaign.com> <https://www.sovendus-connect.com> <https://www.sovendus-network.com> |
+| font-src    | https://\*.sovendus.com                                                                                                                                       |
+| frame-src   | https://\*.sovendus.com <https://www.sovendus-benefits.com> <https://www.sovendus-campaign.com> <https://www.sovendus-connect.com> <https://www.sovendus-network.com> |
+| img-src     | data: https://\*.sovendus.com                                                                                                                                 |
+| script-src  | 'unsafe-inline' https://\*.sovendus.com                                                                                                                       |
+| style-src   | 'unsafe-inline' https://\*.sovendus.com
 
 ---
 
