@@ -10,14 +10,14 @@ Configure your Content Security Policy (CSP) headers to ensure Sovendus Voucher 
 
 Configure these CSP directives to allow Sovendus functionality:
 
-| Directive   | Value                                                                                                                                                         |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| connect-src | https://\*.sovendus.com <https://www.sovendus-benefits.com> <https://www.sovendus-campaign.com> <https://www.sovendus-connect.com> <https://www.sovendus-network.com> |
-| font-src    | https://\*.sovendus.com                                                                                                                                       |
-| frame-src   | https://\*.sovendus.com <https://www.sovendus-benefits.com> <https://www.sovendus-campaign.com> <https://www.sovendus-connect.com> <https://www.sovendus-network.com> |
-| img-src     | data: https://\*.sovendus.com                                                                                                                                 |
-| script-src  | 'unsafe-inline' https://\*.sovendus.com                                                                                                                       |
-| style-src   | 'unsafe-inline' https://\*.sovendus.com
+| Directive   | Value                                                                                                                                                         | Explanation |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| connect-src | https://\*.sovendus.com <https://www.sovendus-benefits.com> <https://www.sovendus-campaign.com> <https://www.sovendus-connect.com> <https://www.sovendus-network.com> | Controls which URLs the site can make network requests to (XMLHttpRequest, WebSocket, fetch). Required for API calls and data fetching from Sovendus services. |
+| font-src    | https://\*.sovendus.com                                                                                                                                       | Specifies valid sources for fonts loaded with @font-face. Allows custom fonts from Sovendus domains to ensure consistent branding and typography. |
+| frame-src   | https://\*.sovendus.com <https://www.sovendus-benefits.com> <https://www.sovendus-campaign.com> <https://www.sovendus-connect.com> <https://www.sovendus-network.com> | Controls which URLs can be embedded as frames/iframes. Essential for displaying Sovendus voucher banners and embedded content securely. |
+| img-src     | data: https://\*.sovendus.com                                                                                                                                 | Defines valid sources for images. Includes `data:` for inline base64 images and Sovendus domains for voucher logos, brand images, and promotional graphics. |
+| script-src  | 'unsafe-inline' https://\*.sovendus.com                                                                                                                       | Specifies valid sources for JavaScript. `'unsafe-inline'` allows inline scripts, and Sovendus domains enable loading of tracking and banner functionality scripts. |
+| style-src   | 'unsafe-inline' https://\*.sovendus.com                                                                                                                       | Controls valid sources for stylesheets. `'unsafe-inline'` permits inline styles, and Sovendus domains allow custom CSS for proper banner styling and responsive design. |
 
 ---
 
@@ -84,7 +84,7 @@ const express = require('express');
 const app = express();
 
 app.use((req, res, next) => {
-    res.setHeader('Content-Security-Policy', 
+    res.setHeader('Content-Security-Policy',
         "connect-src 'self' https://*.sovendus.com https://www.sovendus-benefits.com https://www.sovendus-campaign.com https://www.sovendus-connect.com https://www.sovendus-network.com; " +
         "font-src 'self' https://*.sovendus.com; " +
         "frame-src 'self' https://*.sovendus.com https://www.sovendus-benefits.com https://www.sovendus-campaign.com https://www.sovendus-connect.com https://www.sovendus-network.com; " +
@@ -110,10 +110,6 @@ header("Content-Security-Policy: connect-src 'self' https://*.sovendus.com https
 
 ### Pre-Implementation
 
-- [ ] **Identify current CSP setup**
-  - Check existing CSP headers
-  - Document current directives
-  - Note any custom security policies
 
 - [ ] **Plan implementation method**
   - Choose server-level vs application-level
@@ -124,7 +120,7 @@ header("Content-Security-Policy: connect-src 'self' https://*.sovendus.com https
 
 - [ ] **Update CSP configuration**
   - [ ] Add connect-src directives
-  - [ ] Add font-src directives  
+  - [ ] Add font-src directives
   - [ ] Add frame-src directives
   - [ ] Add img-src directives
   - [ ] Add script-src directives
@@ -188,43 +184,13 @@ Content-Security-Policy: connect-src 'self' https://*.sovendus.com;
 
 ---
 
-## 🔒 Security Best Practices
-
-### Principle of Least Privilege
-
-- ✅ **Only add required directives** - Don't use overly permissive policies
-- ✅ **Regular audits** - Review and update CSP regularly
-- ✅ **Monitor violations** - Set up CSP violation reporting
-- ✅ **Test thoroughly** - Verify functionality after changes
-
-### Advanced Configuration
-
-```http
-# Enhanced CSP with nonce for better security
-Content-Security-Policy: 
-  default-src 'self';
-  connect-src 'self' https://*.sovendus.com https://www.sovendus-benefits.com;
-  font-src 'self' https://*.sovendus.com;
-  frame-src 'self' https://*.sovendus.com https://www.sovendus-benefits.com;
-  img-src 'self' data: https://*.sovendus.com;
-  script-src 'self' 'nonce-{random-nonce}' https://*.sovendus.com;
-  style-src 'self' 'nonce-{random-nonce}' https://*.sovendus.com;
-  report-uri /csp-report;
-```
-
----
-
 ## ⚠️ Important Warnings
 
-> [!WARNING]
+> [! WARNING]
 > **Production Safety**
 > The example code provided is for testing purposes only. Do not use the test code in production environments without proper security review.
 
-> [!WARNING]
-> **'unsafe-inline' Considerations**
-> While `'unsafe-inline'` is required for Sovendus functionality.
-
-> [!INFO]
+> [! INFO]
 > **Testing Recommendation**
 > Always test CSP changes in a staging environment before deploying to production.
 
