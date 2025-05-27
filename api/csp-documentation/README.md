@@ -15,9 +15,9 @@ Configure these CSP directives to allow Sovendus functionality:
 | connect-src | https://\*.sovendus.com <https://www.sovendus-benefits.com> <https://www.sovendus-campaign.com> <https://www.sovendus-connect.com> <https://www.sovendus-network.com> | Controls which URLs the site can make network requests to (XMLHttpRequest, WebSocket, fetch). Required for API calls and data fetching from Sovendus services. |
 | font-src    | https://\*.sovendus.com                                                                                                                                       | Specifies valid sources for fonts loaded with @font-face. Allows custom fonts from Sovendus domains to ensure consistent branding and typography. |
 | frame-src   | https://\*.sovendus.com <https://www.sovendus-benefits.com> <https://www.sovendus-campaign.com> <https://www.sovendus-connect.com> <https://www.sovendus-network.com> | Controls which URLs can be embedded as frames/iframes. Essential for displaying Sovendus voucher banners and embedded content securely. |
-| img-src     | data: https://\*.sovendus.com                                                                                                                                 | Defines valid sources for images. Includes `data:` for inline base64 images and Sovendus domains for voucher logos, brand images, and promotional graphics. |
-| script-src  | 'unsafe-inline' https://\*.sovendus.com                                                                                                                       | Specifies valid sources for JavaScript. `'unsafe-inline'` allows inline scripts, and Sovendus domains enable loading of tracking and banner functionality scripts. |
-| style-src   | 'unsafe-inline' https://\*.sovendus.com                                                                                                                       | Controls valid sources for stylesheets. `'unsafe-inline'` permits inline styles, and Sovendus domains allow custom CSS for proper banner styling and responsive design. |
+| img-src     | data: https://\*.sovendus.com                                                                                                                                 | Defines valid sources for images. Includes **data:** for inline base64 images and Sovendus domains for voucher logos, brand images, and promotional graphics. |
+| script-src  | 'unsafe-inline' https://\*.sovendus.com                                                                                                                       | Specifies valid sources for JavaScript. **'unsafe-inline'** allows inline scripts, and Sovendus domains enable loading of tracking and banner functionality scripts. |
+| style-src   | 'unsafe-inline' https://\*.sovendus.com                                                                                                                       | Controls valid sources for stylesheets. **'unsafe-inline'** permits inline styles, and Sovendus domains allow custom CSS for proper banner styling and responsive design. |
 
 ---
 
@@ -112,9 +112,9 @@ header("Content-Security-Policy: connect-src 'self' https://*.sovendus.com https
 
 
 - [ ] **Plan implementation method**
-  - Choose server-level vs application-level
-  - Consider staging environment testing
-  - Prepare rollback plan
+  - [ ] Choose server-level vs application-level
+  - [ ] Consider staging environment testing
+  - [ ] Prepare rollback plan
 
 ### Implementation Steps
 
@@ -141,11 +141,11 @@ header("Content-Security-Policy: connect-src 'self' https://*.sovendus.com https
 | Error | Cause | Solution |
 |-------|-------|----------|
 | **Refused to connect** | Missing connect-src | Add Sovendus domains to connect-src |
-| **Refused to load font** | Missing font-src | Add `https://*.sovendus.com` to font-src |
+| **Refused to load font** | Missing font-src | Add **https://*.sovendus.com`** to font-src |
 | **Refused to frame** | Missing frame-src | Add Sovendus domains to frame-src |
-| **Refused to load image** | Missing img-src | Add `data:` and Sovendus domains to img-src |
-| **Refused to execute script** | Missing script-src | Add `'unsafe-inline'` and Sovendus domains |
-| **Refused to apply style** | Missing style-src | Add `'unsafe-inline'` and Sovendus domains |
+| **Refused to load image** | Missing img-src | Add **data:`** and Sovendus domains to img-src |
+| **Refused to execute script** | Missing script-src | Add **'unsafe-inline'** and Sovendus domains |
+| **Refused to apply style** | Missing style-src | Add **'unsafe-inline'** and Sovendus domains |
 
 ### Debug Steps
 
