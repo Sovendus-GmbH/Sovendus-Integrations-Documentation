@@ -222,7 +222,7 @@ Content-Security-Policy:
 
 > [!WARNING]
 > **'unsafe-inline' Considerations**
-> While `'unsafe-inline'` is required for Sovendus functionality, consider implementing nonce-based CSP for enhanced security in production.
+> While `'unsafe-inline'` is required for Sovendus functionality.
 
 > [!INFO]
 > **Testing Recommendation**
@@ -235,7 +235,6 @@ Content-Security-Policy:
 - **📖 Documentation**: [Developer Hub](https://developer-hub.sovendus.com)
 - **🛠️ Integration Tester**: [Test Your Setup](https://developer-hub.sovendus.com/Integration-Tester)
 - **💬 Support**: Contact your Sovendus account manager
-- **📧 Technical Help**: [support@sovendus.com](mailto:support@sovendus.com)
 - **🔒 CSP Resources**: [MDN CSP Guide](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
 
 ---
