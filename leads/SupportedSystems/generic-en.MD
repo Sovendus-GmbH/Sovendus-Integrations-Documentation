@@ -1,49 +1,31 @@
 # 🔗 Generic Newsletter System Integration
 
 > [!INFO]
-> **Generic Integration Overview**
-> If your newsletter system is not yet supported by Sovendus, we can help you integrate it. This guide explains the process for connecting unsupported newsletter systems.
+> If your newsletter system isn't supported yet, we can help you integrate it. This guide walks you through the process.
 
-## 📋 Integration Request Checklist
+## 🚀 Getting Started
 
-- [ ] **Identify Your System**
-  Determine the name and type of your newsletter platform.
+### What You'll Need
 
-- [ ] **Gather Documentation**
-  Collect API documentation and integration guides.
+Before reaching out to Sovendus, please gather:
 
-- [ ] **Contact Sovendus**
-  Submit your integration request with required information.
+| Item | Details | Example |
+|------|---------|---------|
+| `System Name` | Your newsletter platform | `CustomMailer Pro` |
+| `Version/Plan` | Current version or plan | `Enterprise v3.2` |
+| `API Docs` | Link to API documentation | `docs.custommailer.com/api` |
+| `Website` | Official platform URL | `custommailer.com` |
 
+### 📧 Contact Sovendus
 
----
+Ready to integrate? Send us this information:
 
-## 🚀 Quick Start Process
-
-### Step 1: System Identification
-
-Before contacting Sovendus, gather this information about your newsletter system:
-
-#### Required Information
-
-| Information | Description | Example |
-|-------------|-------------|---------|
-|`System Name` | Official name of your newsletter platform | `CustomMailer Pro` |
-| `Version` | Software version or plan type | `Enterprise v3.2` |
-| `API Documentation` | Link to official API docs | `https://docs.custommailer.com/api` |
-
-
----
-
-### 📧 Contacting Sovendus
-
-#### Information to Provide
-
-When contacting Sovendus for a new integration, include:
-
+```yaml
+Newsletter System: [Your System Name]
+Version: [Version/Plan Type]
+Website: [Official URL]
+API Documentation: [API Docs Link]
+Additional Notes: [Any special requirements]
 ```
-Newsletter System: [System Name]
-Version/Plan: [Version Information]
-Website: [Official Website URL]
-API Documentation: [Link to API Docs]
-```
+
+We'll review your request and get back to you with next steps for the integration process.
