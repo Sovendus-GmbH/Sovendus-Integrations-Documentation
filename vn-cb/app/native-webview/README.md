@@ -3,6 +3,7 @@
 This documentation is for mobile Apps where the order success page is native.
 
 1. Create a webview component with the following HTML:
+
    ```html
    <!DOCTYPE html>
    <html>
@@ -48,6 +49,7 @@ This documentation is for mobile Apps where the order success page is native.
      </body>
    </html>
    ```
+
 2. Make sure all variables in the HTML starting with a $ are defined
 [Click here for detailed information on the parameters and which ones are required.](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Parameter)
 
@@ -68,10 +70,12 @@ This documentation is for mobile Apps where the order success page is native.
    ```
 
 5. The height of your native component should be based on the height of the body inside the webview. You can achieve this by adding a resize observer on the body inside the webview. For example like that:
+
    ```javascript
    const _body = document.getElementById("body");
    new ResizeObserver(() => {
      console.log(_body.clientHeight);
    }).observe(_body);
    ```
+
 6. Use the component you've just created where you want the Sovendus Banner to appear

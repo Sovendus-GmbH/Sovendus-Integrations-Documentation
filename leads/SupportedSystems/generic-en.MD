@@ -28,9 +28,9 @@ Before contacting Sovendus, gather this information about your newsletter system
 
 | Information | Description | Example |
 |-------------|-------------|---------|
-| **System Name** | Official name of your newsletter platform | `CustomMailer Pro` |
-| **Version** | Software version or plan type | `Enterprise v3.2` |
-| **API Documentation** | Link to official API docs | `https://docs.custommailer.com/api` |
+|`System Name` | Official name of your newsletter platform | `CustomMailer Pro` |
+| `Version` | Software version or plan type | `Enterprise v3.2` |
+| `API Documentation` | Link to official API docs | `https://docs.custommailer.com/api` |
 
 
 ---
