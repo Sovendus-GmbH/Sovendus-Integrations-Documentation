@@ -1,0 +1,64 @@
+<!-- sovendus code begin -->
+<div style="margin-top: 30px" id="sovendus-container-1"></div>
+
+<script type="text/javascript">
+  var sovendusIdsByCountry = {
+    IT: {
+      trafficSourceNumber: "6661",
+      trafficMediumNumber: "1",
+    },
+  };
+  var countryCode = "{{checkout.billing_address.country_code}}";
+  const language = document.documentElement.lang?.split("-")?.[0];
+  const sovendusIds =
+    sovendusIdsByCountry[countryCode] ||
+    sovendusIdsByCountry[`${countryCode}-${language}`];
+  if (sovendusIds) {
+    var taxPercent = Number(
+      "{% for tax_line in checkout.tax_lines %}{{ tax_line.rate }}{% endfor %}"
+    );
+    var totalPrice = Number("{{checkout.total_price}}");
+    var shippingPrice = Number("{{checkout.shipping_price}}");
+    taxPercent = isNaN(taxPercent) ? 0 : taxPercent;
+    totalPrice = isNaN(totalPrice) ? 0 : totalPrice;
+    shippingPrice = isNaN(shippingPrice) ? 0 : shippingPrice;
+    var grossOrderValue = (totalPrice - shippingPrice) * 0.01;
+    var netOrderValue = grossOrderValue - grossOrderValue * taxPercent;
+    var firstCouponCode = "{{ checkout.discount_applications.first.title }}";
+    var lastCouponCode = "{{ checkout.discount_applications.last.title }}";
+    var couponCode = lastCouponCode.toLowerCase().includes("sov")
+      ? lastCouponCode
+      : firstCouponCode;
+    window.sovIframes = window.sovIframes || [];
+    window.sovIframes.push({
+      trafficSourceNumber: sovendusIds.trafficSourceNumber,
+      trafficMediumNumber: sovendusIds.trafficMediumNumber,
+      sessionId: "{{checkout.order_id}}" + netOrderValue,
+      timestamp: Math.floor(Date.now() / 1000),
+      orderId: "{{checkout.order_id}}",
+      orderValue: netOrderValue,
+      orderCurrency: "{{checkout.currency}}",
+      usedCouponCode: couponCode,
+      iframeContainerId: "sovendus-container-1",
+      integrationType: "shopify-1.2.2",
+    });
+
+    window.sovConsumer = {
+      consumerSalutation: "",
+      consumerFirstName: "{{checkout.billing_address.first_name}}",
+      consumerLastName: "{{checkout.billing_address.last_name}}",
+      consumerEmail: "{{checkout.email}}",
+      consumerCountry: "{{checkout.billing_address.country_code}}",
+      consumerZipcode: "{{checkout.billing_address.zip}}",
+    };
+
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.async = true;
+    script.src =
+      window.location.protocol +
+      "//api.sovendus.com/sovabo/common/js/flexibleIframe.js";
+    document.body.appendChild(script);
+  }
+</script>
+<!-- sovendus code end -->
