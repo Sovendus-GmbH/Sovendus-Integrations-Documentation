@@ -30,7 +30,7 @@
 
 ### Token-Based Workflow
 
-![Workflow](https://raw.githubusercontent.com/Sovendus-GmbH/Generic-Sovendus-Checkout-Products-Postback-Integration-Documentation/main/workflowimg.png)
+![Workflow](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Integrations-Documentation/main/docs/checkout-products/workflowimg.png)
 
 1. **Token Generation**: Sovendus adds `sovReqToken` to your landing page URL
 2. **Token Capture**: Your system captures and stores the token

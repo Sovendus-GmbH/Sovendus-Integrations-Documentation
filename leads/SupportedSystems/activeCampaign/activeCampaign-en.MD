@@ -5,6 +5,6 @@
 2. API URL: Your API URL can be found in your account on the My Settings page under the "Developer" tab. 
 
 3. API Key: You can get it his way:
-   ![Get ActiveCampaign API key](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Leads-Documentation/main/SupportedSystems/activeCampaign/get-api-key.png)
+   ![Get ActiveCampaign API key](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Integrations-Documentation/main/docs/leads/SupportedSystems/activeCampaign/get-api-key.png)
 
 4. Send the Newsletter System name, the list id and the API key to Sovendus
