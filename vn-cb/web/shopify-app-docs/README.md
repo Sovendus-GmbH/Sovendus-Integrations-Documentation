@@ -9,7 +9,7 @@
 
 To check your thank you / order status page version go to "Settings -> Checkout", if you are on the new version it should look like on the screenshot below:
 
-![New Shopify Checkout Version](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Voucher-Network-and-Checkout-Benefits-App-for-Shopify/main/new-shopify-checkout-version.png)
+![New Shopify Checkout Version](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Integrations-Documentation/main/vn-cb/web/shopify-app-docs/new-shopify-checkout-version.png)
 
 ## Create discount codes in bulk (optional)
 
@@ -26,7 +26,7 @@ b. Get the color code for the buttons on the checkout page
 - Click on the gear icon to open the settings sidebar
 - Scroll down to the colors section and copy the color code for buttons
 
-  ![Get the color code of your checkout buttons](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Voucher-Network-and-Checkout-Benefits-App-for-Shopify/main/color_code.png)
+  ![Get the color code of your checkout buttons](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Integrations-Documentation/main/vn-cb/web/shopify-app-docs/color_code.png)
 
 c. Send the backend url and color code to Sovendus
 
@@ -50,4 +50,4 @@ Go to the Sovendus App and follow the instructions provided in the app
 
 ## Example Image for Shopify App Integration
 
-![Shopify-App-image](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Voucher-Network-and-Checkout-Benefits-App-for-Shopify/main/Shopify-App.png)
+![Shopify-App-image](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Integrations-Documentation/main/vn-cb/web/shopify-app-docs/Shopify-App.png)
