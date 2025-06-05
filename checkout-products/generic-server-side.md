@@ -13,7 +13,7 @@ Track conversions from Sovendus partners with a server-to-server API integration
 
 ## � How It Works
 
-![Workflow](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Integrations-Documentation/main/docs/checkout-products/workflowimg.png)
+![Workflow](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Integrations-Documentation/main/checkout-products/workflowimg.png)
 
 When users click your offer on partner sites, they arrive with a `sovReqToken` parameter. Your server captures this token and sends it back via API when they complete an order.
 
