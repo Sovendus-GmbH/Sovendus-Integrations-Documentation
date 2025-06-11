@@ -24,8 +24,8 @@ Check if you're using the new checkout: **Settings → Checkout**
 
 ### Step 1: Installation Link
 
-- **Contact your Sovendus account manager** with your website domain
-- **Receive the installation link** from your account manager
+- **Contact your Sovendus account manager** with your website domain and let them know you want to use the Shopify Sovendus app
+- **Receive the installation link** your Sovendus account manager will provide you with an installation link
 
 ### Step 2: Install the App
 
