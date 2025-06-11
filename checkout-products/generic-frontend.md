@@ -92,17 +92,6 @@ document.addEventListener('DOMContentLoaded', fireSovendusPixel);
    https://press-order-api.sovendus.com/ext/image?sovReqToken=test-token-123
    ```
 
-### Debug Helper
-
-```javascript
-// Check integration status
-function debugSovendus() {
-  const token = localStorage.getItem('sovReqToken');
-  console.log('Token exists:', !!token);
-  console.log('Token value:', token);
-}
-```
-
 ---
 
 ## ⚠️ Important Notes
