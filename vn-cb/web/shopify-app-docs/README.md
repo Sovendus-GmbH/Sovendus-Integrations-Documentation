@@ -26,23 +26,23 @@ Check if you're using the new checkout: **Settings → Checkout**
 
 Send these details to your Sovendus account manager:
 
-- [ ] **Shopify Admin URL**
+- **Shopify Admin URL**
   Example: `https://admin.shopify.com/store/my-store`
 
-- [ ] **Button Color Code** *(Voucher Network only)*
+- **Button Color Code** *(Voucher Network only)*
   **Settings → Checkout → Customize → Gear Icon → Colors Section**
 
 ![Get the color code of your checkout buttons](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Integrations-Documentation/main/vn-cb/web/shopify-app-docs/color_code.png)
 
 ### Step 2: Install the App
 
-- [ ] Open the installation URL provided by Sovendus
-- [ ] Click **Install** to add the app to your store
+- Open the installation URL provided by Sovendus
+- Click **Install** to add the app to your store
 
 ### Step 3: Configure Settings
 
-- [ ] Navigate to the Sovendus App in your Shopify admin
-- [ ] Follow the in-app configuration instructions
+- Navigate to the Sovendus App in your Shopify admin
+- Follow the in-app configuration instructions
 
 ### Step 4: Testing & Verification
 
@@ -50,9 +50,9 @@ Testing requirements depend on your enabled Sovendus products:
 
 #### 🎯 Voucher Network & Checkout Benefits
 
-- [ ] 🛒 **Place a test order** in your store
-- [ ] 👀 **Check the "Thank You" page** for the Sovendus banner
-- [ ] ✅ **Verify positioning** matches the example below
+- 🛒 **Place a test order** in your store
+- 👀 **Check the "Thank You" page** for the Sovendus banner
+- ✅ **Verify positioning** matches the example below
 
 > [!INFO]
 > **Testing App Note**
