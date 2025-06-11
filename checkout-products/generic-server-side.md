@@ -23,8 +23,8 @@ Sovendus will provide you with:
 
 | Credential | Example | Description |
 |------------|---------|-------------|
-| **Product ID** | `9bc72425-902c-3abf-9db8-8b186d7cb160` | Your campaign identifier |
-| **API Key** | `XXXX-XXXXX-XXXXXX-XXX` | Authentication key |
+| `Product ID` | `9bc72425-902c-3abf-9db8-8b186d7cb160` | Your campaign identifier |
+| `API Key` | `XXXX-XXXXX-XXXXXX-XXX` | Authentication key |
 
 > [!WARNING]
 > **Keep these credentials secure** - never expose them in client-side code.
