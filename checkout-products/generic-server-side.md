@@ -2,7 +2,7 @@
 
 Track conversions from Sovendus partners with a server-to-server API integration.
 
-## � Quick Start
+## 🚀 Quick Start
 
 1. **Get credentials** from Sovendus (Product ID + API Key)
 2. **Capture token** on landing page
@@ -11,7 +11,7 @@ Track conversions from Sovendus partners with a server-to-server API integration
 
 ---
 
-## � How It Works
+## ⚙️ How It Works
 
 ![Workflow](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Integrations-Documentation/main/checkout-products/workflowimg.png)
 
@@ -43,7 +43,7 @@ def capture_token(request):
     token = request.GET.get('sovReqToken')
     if token:
         session_id = request.session.session_key
-        cache.set(f"sovendus_token_{session_id}", token, 86400)  # 24h expiry
+        cache.set(f"sovendus_token_{session_id}", token, 2592000)  # 30 days expiry
         print(f"✅ Token captured: {token[:8]}...")
 ```
 
@@ -53,7 +53,7 @@ function captureToken(req, res, next) {
     const token = req.query.sovReqToken;
     if (token) {
         const key = `sovendus_token_${req.sessionID}`;
-        redis.setex(key, 86400, token);  // 24h expiry
+        redis.setex(key, 2592000, token);  // 30 days expiry
         console.log(`✅ Token captured: ${token.substring(0, 8)}...`);
     }
     next();
@@ -95,17 +95,27 @@ def process_order(request, order_id):
 
 ```javascript
 // Node.js example
-const axios = require('axios');
-
 async function sendConversion(token, productId, apiKey) {
     const url = `https://press-order-api.sovendus.com/ext/${productId}/${token}/api`;
 
     try {
-        const response = await axios.post(url, { apiKey }, { timeout: 30000 });
-        console.log('✅ Conversion sent successfully');
-        return true;
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ apiKey }),
+        });
+
+        if (response.ok) {
+            console.log('✅ Conversion sent successfully');
+            return true;
+        } else {
+            console.log(`❌ API error: ${response.status}`);
+            return false;
+        }
     } catch (error) {
-        console.log(`❌ API error: ${error.response?.status}`);
+        console.log(`❌ Network error: ${error.message}`);
         return false;
     }
 }
