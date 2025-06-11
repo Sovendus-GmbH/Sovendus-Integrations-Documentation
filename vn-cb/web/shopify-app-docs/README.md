@@ -25,6 +25,7 @@ Check if you're using the new checkout: **Settings → Checkout**
 ### Step 1: Installation Link
 
 - **Contact your Sovendus account manager** with your website domain
+- **Receive the installation link** from your account manager
 
 ### Step 2: Install the App
 
