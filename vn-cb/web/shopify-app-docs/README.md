@@ -2,7 +2,7 @@
 
 > [!WARNING]
 > **New Shopify Checkout Required**
-> This app only works with Shopify's new "Checkout Extensibility" version. [View docs for the old version →](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Web-Integration/Shopify-Integration-(old-version))
+> This app only works with Shopify's new "Checkout Extensibility" version. [View docs for the old version](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Web-Integration/Shopify-Integration-(old-version))
 
 ## ✅ Prerequisites
 
