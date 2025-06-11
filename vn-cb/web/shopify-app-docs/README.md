@@ -1,53 +1,77 @@
-# Sovendus App for Shopify
+# 🛍️ Sovendus App for Shopify
 
-## This documentation is only for the new Shopify version
->
 > [!WARNING]
-> The Shopify app only works if you have upgraded your thank you / order status page to the "Checkout extensibility" version, the [docs for the old version can be found here](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Web-Integration/Shopify-Integration-(old-version))
+> **New Shopify Checkout Required**
+> This app only works with Shopify's new "Checkout Extensibility" version. [View docs for the old version →](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Web-Integration/Shopify-Integration-(old-version))
 
-### How to check if you are using the new Shopify checkout version
+## ✅ Prerequisites
 
-To check your thank you / order status page version go to "Settings -> Checkout", if you are on the new version it should look like on the screenshot below:
+### Verify Your Checkout Version
+
+Check if you're using the new checkout: **Settings → Checkout**
 
 ![New Shopify Checkout Version](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Integrations-Documentation/main/vn-cb/web/shopify-app-docs/new-shopify-checkout-version.png)
 
-## Create discount codes in bulk (optional)
+### Optional: Bulk Discount Codes
 
-If you use the Voucher Network, it's recommended to use a tool to create voucher codes in bulk \
-You can use for example [Bulk Discounts](https://apps.shopify.com/bulk-discounts) to create multiple discount codes at once
+> [!INFO]
+> **Voucher Network Users**
+> Consider using [Bulk Discounts](https://apps.shopify.com/bulk-discounts) to create multiple discount codes efficiently.
 
-## 1. Send your Shopify admin URL and color code to Sovendus
+---
 
-a. To generate a installation link, we need the url of your Shopify backend e.g. <https://admin.shopify.com/store/my-store>
+## 🚀 Setup Process
 
-b. Get the color code for the buttons on the checkout page
+### Step 1: Provide Store Information
 
-- Go to Settings -> Checkout -> click on Customize to customize your checkout pages
-- Click on the gear icon to open the settings sidebar
-- Scroll down to the colors section and copy the color code for buttons
+Send these details to your Sovendus account manager:
 
-  ![Get the color code of your checkout buttons](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Integrations-Documentation/main/vn-cb/web/shopify-app-docs/color_code.png)
+- [ ] **Shopify Admin URL**
+  Example: `https://admin.shopify.com/store/my-store`
 
-c. Send the backend url and color code to Sovendus
+- [ ] **Button Color Code** *(Voucher Network only)*
+  **Settings → Checkout → Customize → Gear Icon → Colors Section**
 
-## 2. Install the app
+![Get the color code of your checkout buttons](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Integrations-Documentation/main/vn-cb/web/shopify-app-docs/color_code.png)
 
-Open the installation URL you will receive from Sovendus and click on install
+### Step 2: Install the App
 
-## 3. Configure the App
+- [ ] Open the installation URL provided by Sovendus
+- [ ] Click **Install** to add the app to your store
 
-Go to the Sovendus App and follow the instructions provided in the app
+### Step 3: Configure Settings
 
-## 4. Test the app
+- [ ] Navigate to the Sovendus App in your Shopify admin
+- [ ] Follow the in-app configuration instructions
 
-### To test the integration, ensure the following
+### Step 4: Testing & Verification
 
-- The Shopify App (new version) is not yet recognized by the Self-Test Extension, so no data will be displayed there.
+Testing requirements depend on your enabled Sovendus products:
 
-- Instead, verify that the Sovendus integration is visible on the "Thank You" page of your store.
+#### 🎯 Voucher Network & Checkout Benefits
 
-- Ensure that the position of the Sovendus banner matches the position shown in the example image provided below.
+- [ ] 🛒 **Place a test order** in your store
+- [ ] 👀 **Check the "Thank You" page** for the Sovendus banner
+- [ ] ✅ **Verify positioning** matches the example below
 
-## Example Image for Shopify App Integration
+> [!INFO]
+> **Testing App Note**
+> The new Shopify app isn't recognized by the Sovendus testing app yet. Use visual verification instead.
 
-![Shopify-App-image](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Integrations-Documentation/main/vn-cb/web/shopify-app-docs/Shopify-App.png)
+![Shopify App Integration Example](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Integrations-Documentation/main/vn-cb/web/shopify-app-docs/Shopify-App.png)
+
+#### 🛍️ Checkout Products
+
+- ❌ No testing is required from your side
+- 📞 Simply inform your Sovendus account manager once Checkout Products is enabled in the app settings
+- ✅ Your account manager will handle any necessary verification
+
+#### 🚀 Optimize
+
+- ❌ Testing is handled entirely by your Sovendus account manager
+- 📞 Simply inform your Sovendus account manager once Optimize is configured in the app settings
+- ✅ Your account manager will conduct all necessary tests and optimizations
+
+---
+
+**🎉 Your Sovendus integration is ready to boost customer engagement and drive sales!**
