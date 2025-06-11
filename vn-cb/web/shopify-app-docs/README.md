@@ -48,7 +48,7 @@ Send these details to your Sovendus account manager:
 
 Testing requirements depend on your enabled Sovendus products:
 
-#### 🎯 Voucher Network & Checkout Benefits
+#### 🎯 Voucher Network / Checkout Benefits
 
 - 🛒 **Place a test order** in your store
 - 👀 **Check the "Thank You" page** for the Sovendus banner
