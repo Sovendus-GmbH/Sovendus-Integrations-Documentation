@@ -155,10 +155,10 @@ POST https://press-order-api.sovendus.com/ext/{PRODUCT_ID}/{TOKEN}/api
 
 | Code | Meaning |
 |------|---------|
-| **200** | ✅ Success |
-| **403** | ❌ Invalid API key |
-| **422** | ❌ Invalid Product ID or token |
-| **404** | ❌ Wrong URL |
+| `200` | ✅ Success |
+| `403` | ❌ Invalid API key |
+| `422` | ❌ Invalid Product ID or token |
+| `404` | ❌ Wrong URL |
 
 ---
 
