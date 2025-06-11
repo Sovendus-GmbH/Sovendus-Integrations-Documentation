@@ -195,9 +195,9 @@ def debug_sovendus(token, product_id, api_key):
 
 ### Common Issues
 
-**403 Forbidden**: Check your API key
-**422 Invalid**: Verify Product ID and token format
-**No token found**: Ensure token capture is working on landing page
+- **403 Forbidden**: Check your API key
+- **422 Invalid**: Verify Product ID and token format
+- **No token found**: Ensure token capture is working on landing page
 
 ---
 
