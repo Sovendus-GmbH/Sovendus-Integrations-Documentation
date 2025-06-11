@@ -46,6 +46,7 @@ Testing requirements depend on your enabled Sovendus products:
 - 🛒 **Place a test order** in your store
 - 👀 **Check the "Thank You" page** for the Sovendus banner
 - ✅ **Verify positioning** matches the example below
+- 📸 **Send a screenshot** of the "Thank You" page to your Sovendus account manager
 
 > [!INFO]
 > **Testing App Note**
