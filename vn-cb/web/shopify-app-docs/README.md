@@ -22,17 +22,9 @@ Check if you're using the new checkout: **Settings → Checkout**
 
 ## 🚀 Setup Process
 
-### Step 1: Provide Store Information
+### Step 1: Installation Link
 
-Send these details to your Sovendus account manager:
-
-- **Shopify Admin URL**
-  Example: `https://admin.shopify.com/store/my-store`
-
-- **Button Color Code** *(Voucher Network only)*
-  **Settings → Checkout → Customize → Gear Icon → Colors Section**
-
-![Get the color code of your checkout buttons](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Integrations-Documentation/main/vn-cb/web/shopify-app-docs/color_code.png)
+- **Contact your Sovendus account manager** with your website domain
 
 ### Step 2: Install the App
 
