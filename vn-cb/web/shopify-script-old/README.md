@@ -16,8 +16,8 @@ To check your thank you / order status page version go to "Settings -> Checkout"
 
 ## Create discount codes in bulk
 
-If you use the Voucher Network, it's recommended to use a tool to create voucher codes in bulk \
-You can use for example [Bulk Discounts](https://apps.shopify.com/bulk-discounts) to create multiple discount codes at once
+If you use the Voucher Network, it's recommended to use a tool to create voucher codes in bulk. \
+You can use for example [Bulk Discounts](https://apps.shopify.com/bulk-discounts) to create multiple discount codes at once.
 
 ## Add Sovendus script
 
