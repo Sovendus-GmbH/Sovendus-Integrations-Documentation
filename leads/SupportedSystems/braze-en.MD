@@ -1,9 +1,20 @@
 # Connect Braze
 
-1. Get the URL of you braze dashboard, should look similar to this dashboard-08.braze.com
+## 📝 Steps to Connect Braze
 
-2. API Key with permission to users.track as described here: [Manage API key permissions - braze](https://www.braze.com/docs/api/basics#rest-api-key-permissions)
+1. **Get the URL of your Braze dashboard**
+   - The URL should look similar to this: `dashboard-08.braze.com`
 
-3. Get the Subscription group id where the leads should land
+2. **Obtain an API Key with permission to `users.track`**
+   - Refer to the [Manage API key permissions - Braze](https://www.braze.com/docs/api/basics#rest-api-key-permissions) documentation for details.
 
-4. Send the Newsletter System name, the URL, the API key and the subscription group id to Sovendus
+3. **Get the Subscription Group ID**
+   - Identify the subscription group where the leads should land.
+
+4. **Send the required information to Sovendus**
+   - Compile the following details:
+     - Newsletter System name
+     - Braze dashboard URL
+     - API Key
+     - Subscription Group ID
+   - Share this information with Sovendus to complete the integration process.

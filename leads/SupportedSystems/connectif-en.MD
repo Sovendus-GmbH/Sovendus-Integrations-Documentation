@@ -1,9 +1,12 @@
 # Connect Connectif
 
-1. Sign up to https://leadthing.dev and purchase a subscription
+## 📝 Steps to Connect Connectif
 
-2. Get the leadthing.dev API key
+1. **Create an API key with the permission to write contacts**
+   - Follow the instructions provided in the [Connectif API documentation](https://api-docs.connectif.cloud/connectif-api/guides/authentication).
 
-3. Create an API key with the permission contacts write as described here: https://api-docs.connectif.cloud/connectif-api/guides/authentication
-
-4. Send the Newsletter System name and the API key to Sovendus
+2. **Send the required information to Sovendus**
+   - Compile the following details:
+     - Newsletter System name
+     - API key
+   - Share this information with Sovendus to complete the integration process.

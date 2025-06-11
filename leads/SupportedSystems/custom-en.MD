@@ -1,22 +1,22 @@
-# Connect a custom newsletter system
+# Connect a Custom Newsletter System
 
-# Introduction
+## 📝 Introduction
 
-In order to transfer leads/newsletter registrations from customers to your system in an automated and timely manner, Sovendus can call an interface provided by you. The data is transmitted via the URL parameters of an HTTP GET request (also called a "webhook") or an HTTP POST request. The customer data provided can then be further processed by your system as desired.
+To transfer leads/newsletter registrations from customers to your system in an automated and timely manner, Sovendus can call an interface provided by you. The data is transmitted via the URL parameters of an HTTP GET request (also called a "webhook") or an HTTP POST request. The customer data provided can then be further processed by your system as desired.
 
-## Example GET request
+## Example GET Request
 
-An URL you provide to transfer the leads/newsletter sign-ups could look like this:
+An example URL you provide to transfer the leads/newsletter sign-ups could look like this:
 
 `https://yourdomain.com/subscribe?salutation=%consumer_salutation%&gender=%consumer_gender%&firstname=%consumer_firstname%&lastname=%consumer_lastname%&email=%consumer_email%&sov_id=%newsletter_history_id%&complianceip=%compliance_ip%&compliancetext=%compliance_text%&compliancetimestamp=%compliance_timestamp%`
 
 > [!ERROR]
 > To ensure a secure connection, the HTTPS protocol (with a valid certificate) must be used to transfer the data!
 
-### Transmission parameters
+### Transmission Parameters
 
 > [!WARNING]
-> Parameters can have different names e.g. firstname could be first_name or any other name.
+> Parameters can have different names e.g., firstname could be first_name or any other name.
 
 The URL you provide should contain the following placeholders to allow complete transfer of the customer data:
 
@@ -28,20 +28,20 @@ The URL you provide should contain the following placeholders to allow complete 
 | %consumer_lastname%      | Last name of the customer                                                       |
 | %consumer_email%         | E-mail of the customer                                                          |
 | %newsletter_history_id%  | Sovendus ID of the record                                                       |
-| %compliance_ip% Customer | IP at the time of opt-in consent                                                |
-| %compliance_text%        | Opt-in consent text at the time of confirmation - is transmitted base64 encoded |
-| %compliance_timestamp%   | Time of confirmation of the opt-in consent text - is transmitted base64 encoded |
+| %compliance_ip%          | Customer IP at the time of opt-in consent                                       |
+| %compliance_text%        | Opt-in consent text at the time of confirmation - transmitted base64 encoded    |
+| %compliance_timestamp%   | Time of confirmation of the opt-in consent text - transmitted base64 encoded    |
 
-To ensure your data protection interests, the following transmission parameters %newsletter_history_id%, %compliance_ip%, %compliance_text% and %compliance_timestamp% must be processed in your system.
+To ensure your data protection interests, the following transmission parameters %newsletter_history_id%, %compliance_ip%, %compliance_text%, and %compliance_timestamp% must be processed in your system.
 
 > [!ERROR]
 > The %compliance_text% and the %compliance_timestamp% are base64 encoded to avoid transmission errors!
 
-### Example request from our system
+### Example Request from Our System
 
 An example request from our system could look like this with the following registration data:
 
-#### Registration data:
+#### Registration Data:
 
 - First name: Mustermann
 - Last name: Müller
@@ -55,7 +55,7 @@ An example request from our system could look like this with the following regis
 
 `https://yourdomain.com/subscribe?salutation=Herr&firstname=Mustermann&lastname=M%C3%BCller&email=mustermann.mueller%40mail.de&sov_id=21544842251&complianceip=127.0.0.1&compliancetext=SWNoIHdpbGxpZ2UgaGllcm1pdCBlaW4sIGRhc3MgbWljaCBXRVJCRVBBUlRORVIgw7xiZXIgTmV1aWdrZWl0ZW4gdW5kIEFuZ2Vib3RlICh6dSBbei5CLiBEYW1lbm1vZGVdKSBwZXIgRS1NYWlsIGluZm9ybWllcmVuIGRhcmYuIE1laW5lIEVpbndpbGxpZ3VuZyBrYW5uIGljaCBqZWRlcnplaXQgYmVpIFdFUkJFUEFSVE5FUiB3aWRlcnJ1ZmVu&compliancetimestamp=MDEuMDMuMjAxOCAxMTo1OA%3D%3D`
 
-All transmitted parameters are URL encoded and the character set used is UTF-8.
+All transmitted parameters are URL encoded, and the character set used is UTF-8.
 
 ### Authentication
 
@@ -68,7 +68,7 @@ To prevent unauthorized access to your interface, access to the URL should be se
 > [!ERROR]
 > Username and password for authentication should be submitted to Sovendus in a secure way.
 
-### Return values
+### Return Values
 
 For Sovendus to determine successful transmission, your interface should return as precise an HTTP status code as possible in the range 200-299.
 
@@ -76,7 +76,7 @@ For unsuccessful transmission, your interface should return as precise an HTTP s
 
 In case of errors, Sovendus will attempt to submit requests to the interface up to 10 times, waiting 10 minutes between each request. Nevertheless, you should ensure that the interface is permanently available.
 
-## Example POST request
+## Example POST Request
 
 A POST request you provide to transfer the leads/newsletter sign-ups could look like this:
 
@@ -111,7 +111,7 @@ https://signup.api.com/newsletter_signup
 > [!ERROR]
 > To ensure a secure connection, the HTTPS protocol (with a valid certificate) must be used to transfer the data!
 
-### Transmission parameters
+### Transmission Parameters
 
 > [!WARNING]
 > Parameters can have different names e.g., firstname could be first_name or any other name.
@@ -126,7 +126,7 @@ The example request you provide should contain the following placeholders, to al
 | %consumer_lastname%      | Last name of the customer                       |
 | %consumer_email%         | E-mail of the customer                          |
 | %newsletter_history_id%  | Sovendus ID of the record                       |
-| %compliance_ip% Customer | IP at the time of opt-in consent                |
+| %compliance_ip%          | Customer IP at the time of opt-in consent       |
 | %compliance_text%        | Opt-in consent text at the time of confirmation |
 | %compliance_timestamp%   | Time of confirmation of the opt-in consent text |
 

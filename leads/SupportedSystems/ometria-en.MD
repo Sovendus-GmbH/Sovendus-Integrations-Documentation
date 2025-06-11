@@ -1,7 +1,16 @@
 # Connect Ometria
 
-1. Create an API key, see here: [Creating a new API key – Ometria](https://support.ometria.com/hc/en-gb/articles/9882706389917-Creating-a-new-API-key)
+## 📝 Steps to Connect Ometria
 
-2. Get the list / segment id where the leads should be added to
+1. **Create an API key**
+   - See here: [Creating a new API key – Ometria](https://support.ometria.com/hc/en-gb/articles/9882706389917-Creating-a-new-API-key).
 
-3. Send the Newsletter System name, the API key and the list id to Sovendus
+2. **Get the list/segment ID**
+   - Identify the list or segment where the leads should be added.
+
+3. **Send the required information to Sovendus**
+   - Compile the following details:
+     - Newsletter System name
+     - API key
+     - List/segment ID
+   - Share this information with Sovendus to complete the integration process.

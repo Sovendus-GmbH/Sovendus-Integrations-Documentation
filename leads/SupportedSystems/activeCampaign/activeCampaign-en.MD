@@ -1,10 +1,17 @@
-# Connect ActiveCampaign
+# 🧪 Connect ActiveCampaign
 
-1. List id: You can find the list ID by clicking the list in your ActiveCampaign account, then viewing the URL bar. It will look something like this: /app/contacts/?listid=19&status=1
+## 📋 Steps for Integration
 
-2. API URL: Your API URL can be found in your account on the My Settings page under the "Developer" tab.
+1. **List ID**:  
+   You can find the List ID by clicking on the list in your ActiveCampaign account and checking the URL bar. It looks like this:  
+   `/app/contacts/?listid=19&status=1`
 
-3. API Key: You can get it his way:
+2. **API URL**:  
+   You can find your API URL in your account on the "My Settings" page under the "Developer" tab.
+
+3. **API Key**:  
+   You can retrieve the API key as follows:  
    ![Get ActiveCampaign API key](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Integrations-Documentation/main/leads/SupportedSystems/activeCampaign/get-api-key.png)
 
-4. Send the Newsletter System name, the list id and the API key to Sovendus
+4. **Send Data**:  
+   Send the name of the newsletter system, the List ID, and the API key to Sovendus.

@@ -1,9 +1,21 @@
 # Connect Insider
 
-1. Get the partner name as described here: Navigate to InOne > Inone Settings > [Account Preferences](https://academy.useinsider.com/docs/account-preferences) to copy your partner name. The partner name should be lowercase.
+## 📝 Steps to Connect Insider
 
-2. Get a API Key as described here: Refer to [API Authentication Tokens](https://academy.useinsider.com/docs/api-authentication-tokens#generate-api-key) to generate your token
+1. **Get the partner name**
+   - Navigate to InOne → InOne Settings → [Account Preferences](https://academy.useinsider.com/docs/account-preferences) to copy your partner name.
+   - Ensure the partner name is in lowercase.
 
-3. Get the Newsletter contact list id where the leads should land
+2. **Generate an API Key**
+   - Refer to [API Authentication Tokens](https://academy.useinsider.com/docs/api-authentication-tokens#generate-api-key) to generate your token.
 
-4. Send the Newsletter System name, the partner name, the API key and the Newsletter contact list id to Sovendus
+3. **Get the Newsletter contact list ID**
+   - Identify the contact list where the leads should land.
+
+4. **Send the required information to Sovendus**
+   - Compile the following details:
+     - Newsletter System name
+     - Partner name
+     - API key
+     - Newsletter contact list ID
+   - Share this information with Sovendus to complete the integration process.

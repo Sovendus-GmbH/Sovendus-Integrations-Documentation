@@ -1,12 +1,12 @@
 # Coupon Redemption API for Sovendus Voucher Network and Checkout Benefits
 
-## Introduction
+## 📝 Introduction
 
 As Sovendus relies on tracking all coupon redemptions for the distributed codes to provide its services, it is crucial to make this process as robust as possible against external influences.
 
 For this purpose, Sovendus provides an API for coupon redemptions.
 
-## Key Advantages of API Integration
+## 🌟 Key Advantages of API Integration
 
 - **Reliable Tracking:** No tracking deviations with correct integration
 - **Resilient Solution:** Not affected by browsers, ad blockers, or script errors
@@ -15,7 +15,7 @@ For this purpose, Sovendus provides an API for coupon redemptions.
 - **Improved Performance:** Sovendus algorithms work with accurate data, benefiting your ranking
 - **Optimized Processing:** API calls occur only when a voucher code is used for a purchase
 
-## Recommended Integration Points
+## 🔧 Recommended Integration Points
 
 The API call should be made at the moment of purchase completion:
 
@@ -24,9 +24,10 @@ The API call should be made at the moment of purchase completion:
 - During data export/transmission to a connected ERP system
 - When inserting the transaction into your shop system's 'Order DB'
 
+> [!WARNING]
 > **Important:** The API call must happen just-in-time with the order and not be deferred, such as during a monthly reconciliation.
 
-## Technical Implementation
+## 🛠️ Technical Implementation
 
 ### Access Data (Example)
 
@@ -88,7 +89,7 @@ POST request to `https://coupon-api.sovendus.com/redeem/{trafficSourceNumber}`
 }
 ```
 
-## F.A.Q
+## ❓ F.A.Q
 
 ### Does the API need to be called for every order?
 

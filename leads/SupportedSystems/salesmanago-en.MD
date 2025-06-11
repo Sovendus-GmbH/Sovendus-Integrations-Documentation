@@ -1,15 +1,24 @@
-# Connect Salesmanago
+# 📝 Steps to Connect Salesmanago
 
-1. Sign up to [leadthing.dev](https://leadthing.dev) and purchase a subscription
+1. **Create an API key**
+   - Obtain the client ID, SHA, and API key by navigating to SALESmanago Integration Center → API → API v2 tab → Generate API key and SHA.
 
-2. Get the leadthing.dev API key
+2. **Provide the contact’s owner**
+   - Specify the SALESmanago user account email.
 
-3. Create an API key: We need the clientId, sha and apiKey. Go to SALESmanago Integration Center ➔ API ➔ API v2 tab ➔ Generate API key and SHA to obtain pre-calculated values.
+3. **Get the domain of your SALESmanago server**
+   - Example: `https://xxx.salesmanago.com` (commonly `www`, `app2`, or `app3`).
 
-4. Contact’s owner (SALESmanago user account email)
+4. **Specify the tag name(s)**
+   - Define the tag name(s) to be added to each contact.
 
-5. The Domain of your SALESmanago server (in most cases this will be either www, app2, or app3) e.g. https://xxx.salesmanago.com 
-
-6. The tag name(s) which should be added to the each contact
-
-7. Send the Newsletter System name, the SalesManago client id, the sha, the API key, the contact owner, the domain, the tag name(s) and the leadthing api key to Sovendus
+5. **Send the required information to Sovendus**
+   - Compile the following details:
+     - Newsletter System name
+     - Salesmanago client ID
+     - SHA
+     - API key
+     - Contact owner
+     - Domain
+     - Tag name(s)
+   - Share this information with Sovendus to complete the integration process.

@@ -1,13 +1,22 @@
 # Connect Mailup
 
-1. Sign up to [leadthing.dev](https://leadthing.dev) and purchase a subscription
+## 📝 Steps to Connect Mailup
 
-2. Get the leadthing.dev API key
+1. **Create an API key**
+   - Obtain the client ID and client secret.
 
-3. Create an API key: We need the client Id and client secret
+2. **Provide Mailup credentials**
+   - Share the Mailup username and password.
 
-4. Provide a mailup username and password
+3. **Get the list ID**
+   - Identify the list where the leads should be added.
 
-5. Get the list id where the leads should be added to.
-
-6. Send the Newsletter System name, the Mailup client id, the client secret, the username, the password list id and the leadthing api key to Sovendus
+4. **Send the required information to Sovendus**
+   - Compile the following details:
+     - Newsletter System name
+     - Client ID
+     - Client secret
+     - Username
+     - Password
+     - List ID
+   - Share this information with Sovendus to complete the integration process.

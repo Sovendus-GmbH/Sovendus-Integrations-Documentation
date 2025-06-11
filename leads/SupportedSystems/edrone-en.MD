@@ -1,9 +1,12 @@
 # Connect Edrone
 
-1. Sign up to [leadthing.dev](https://leadthing.dev) and purchase a subscription
+## 📝 Steps to Connect Edrone
 
-2. Get the leadthing.dev API key
+1. **Get your Edrone APP ID**
+   - Log in to your Edrone account and locate your APP ID.
 
-3. Get your Edrone APP id
-
-4. Send the Newsletter System name, the Edrone APP id and the leadthing api key to Sovendus
+2. **Send the required information to Sovendus**
+   - Compile the following details:
+     - Newsletter System name
+     - Edrone APP ID
+   - Share this information with Sovendus to complete the integration process.

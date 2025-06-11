@@ -1,13 +1,17 @@
 # Connect ExpertSender
 
-1. Sign up to [leadthing.dev](https://leadthing.dev) and purchase a subscription
+1. **Create an ExpertSender API key**
+   - Navigate to Settings → API in your ExpertSender account.
 
-2. Get the leadthing.dev API key
+2. **Get the ExpertSender Instance Domain**
+   - Locate the domain in Settings → API in your ExpertSender account.
 
-3. Create an ExpertSender API key (Settings > API)
+3. **Get the contact list ID**
+   - Identify the contact list where the leads should be added.
 
-4. Get the ExpertSender Instance Domain (Settings > API)
-
-5. Get the contact list id where the leads should be added to
-
-6. Send the Newsletter System name, the Expert Sender API key, the Domain, the contact list id and the leadthing API key to Sovendus
+4. **Send the required information to Sovendus**
+   - Compile the following details:
+     - Newsletter System name
+     - ExpertSender API key
+     - Domain
+     - Contact list ID

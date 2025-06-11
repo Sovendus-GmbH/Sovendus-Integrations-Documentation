@@ -1,7 +1,17 @@
 # Connect Mailjet
 
-1. Create an API key: We need the API key and API secret key
+## 📝 Steps to Connect Mailjet
 
-2. Get the list id where the leads should be added to.
+1. **Create an API key**
+   - Obtain the API key and API secret key.
 
-3. Send the the Newsletter System name, the Mailjet API key, API secret key and the list id to Sovendus
+2. **Get the list ID**
+   - Identify the list where the leads should be added.
+
+3. **Send the required information to Sovendus**
+   - Compile the following details:
+     - Newsletter System name
+     - API key
+     - API secret key
+     - List ID
+   - Share this information with Sovendus to complete the integration process.

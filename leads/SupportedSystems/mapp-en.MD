@@ -1,13 +1,21 @@
 # Connect Mapp
 
-1. Sign up to [leadthing.dev](https://leadthing.dev) and purchase a subscription
+## 📝 Steps to Connect Mapp
 
-2. Get the leadthing.dev API key
+1. **Create an API user on Mapp**
+   - Obtain the username and password for the API user.
 
-3. Create an API user on MAPP and copy the username and password
+2. **Get the Mapp instance domain**
+   - Example: `my.mapp-instance.com`.
 
-4. Get the Mapp instance domain, e.g.: my.mapp-instance.com
+3. **Get the group ID**
+   - Identify the group where the leads should be added.
 
-5. Get the id of the group where the leads should be added to
-
-6. Send the Newsletter System name, the leadthing API key, the Mapp username, the password, the instance domain and the group id to Sovendus
+4. **Send the required information to Sovendus**
+   - Compile the following details:
+     - Newsletter System name
+     - Mapp username
+     - Password
+     - Instance domain
+     - Group ID
+   - Share this information with Sovendus to complete the integration process.

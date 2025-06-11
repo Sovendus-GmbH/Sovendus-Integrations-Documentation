@@ -1,9 +1,11 @@
-# Connect Spotler
+# 📝 Steps to Connect Spotler
 
-1. Sign up to [leadthing.dev](https://leadthing.dev) and purchase a subscription
+1. **Create an API key**
+   - Obtain the consumer key and consumer secret.
 
-2. Get the leadthing.dev API key
-
-3. Create an API key: We need the consumer key and consumer secret
-
-4. Send the Newsletter System name, the Spotler consumer key, the consumer secret and the leadthing api key to Sovendus
+2. **Send the required information to Sovendus**
+   - Compile the following details:
+     - Newsletter System name
+     - Spotler consumer key
+     - Consumer secret
+   - Share this information with Sovendus to complete the integration process.

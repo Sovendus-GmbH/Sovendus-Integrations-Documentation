@@ -1,8 +1,9 @@
 # Sovendus generic native App integration for Voucher Network and Checkout Benefits
 
-This documentation is for mobile Apps where the order success page is native.
+## 📝 Steps to Integrate Sovendus in a Native App
 
-1. Create a webview component with the following HTML:
+1. **Create a WebView Component**
+   - Use the following HTML for the WebView:
 
    ```html
    <!DOCTYPE html>
@@ -50,32 +51,37 @@ This documentation is for mobile Apps where the order success page is native.
    </html>
    ```
 
-2. Make sure all variables in the HTML starting with a $ are defined
-[Click here for detailed information on the parameters and which ones are required.](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Parameter)
+2. **Define All Variables**
+   - Ensure all variables in the HTML starting with a `$` are defined.
+   - [Click here for detailed information on the parameters and which ones are required.](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Parameter)
 
-4. Clicks on external links need to be forwarded to the native browser, this can be done with one of the following ways:\
-   a. Prevent all navigation requests and forward the URL it tried to navigate to, to the native browser
+3. **Handle External Links**
+   - Forward clicks on external links to the native browser. This can be done in one of the following ways:
 
-   b. Prevent all navigation requests, catch the javascript event "openInNativeBrowser" and open the url in the event in the native browser. This is how you can catch the event in javascript and get the URL it should navigate to:
+     a. Prevent all navigation requests and forward the URL it tried to navigate to, to the native browser.
 
-   ```javascript
-   window.sovApi = "v1";
-   window.addEventListener("message", (event) => {
-     if (event.data.channel === "sovendus:integration") {
-       if (event.data.payload.action === "openInNativeBrowser") {
-         console.log("URL to open", event.data.payload.url);
+     b. Prevent all navigation requests, catch the JavaScript event `openInNativeBrowser`, and open the URL in the event in the native browser. Use the following code to catch the event and get the URL:
+
+     ```javascript
+     window.sovApi = "v1";
+     window.addEventListener("message", (event) => {
+       if (event.data.channel === "sovendus:integration") {
+         if (event.data.payload.action === "openInNativeBrowser") {
+           console.log("URL to open", event.data.payload.url);
+         }
        }
-     }
-   });
-   ```
+     });
+     ```
 
-5. The height of your native component should be based on the height of the body inside the webview. You can achieve this by adding a resize observer on the body inside the webview. For example like that:
+4. **Adjust Component Height**
+   - The height of your native component should be based on the height of the body inside the WebView. Use a resize observer on the body inside the WebView:
 
-   ```javascript
-   const _body = document.getElementById("body");
-   new ResizeObserver(() => {
-     console.log(_body.clientHeight);
-   }).observe(_body);
-   ```
+     ```javascript
+     const _body = document.getElementById("body");
+     new ResizeObserver(() => {
+       console.log(_body.clientHeight);
+     }).observe(_body);
+     ```
 
-6. Use the component you've just created where you want the Sovendus Banner to appear
+5. **Use the Component**
+   - Use the component you've just created where you want the Sovendus Banner to appear.
