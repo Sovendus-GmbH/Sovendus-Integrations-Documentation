@@ -69,14 +69,8 @@ Add this script at the beginning of the `<body>` section of your order success/t
     usedCouponCode: "COUPON_CODE",
     integrationType: "genericScript-1.4.0",
   });
-
-  // Append Sovendus script to the body
-  var script = document.createElement("script");
-  script.type = "text/javascript";
-  script.async = true;
-  script.src = "https://api.sovendus.com/sovabo/common/js/flexibleIframe.js";
-  document.body.appendChild(script);
 </script>
+<script async="true" src="https://api.sovendus.com/sovabo/common/js/flexibleIframe.js"></script>
 <!--sovendus code end -->
 ```
 
