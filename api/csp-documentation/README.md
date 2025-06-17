@@ -197,7 +197,7 @@ Content-Security-Policy: connect-src 'self' https://*.sovendus.com;
 
 ## 📞 Support & Resources
 
-- **🛠️ Integration Tester**: [Test Your Setup](https://developer-hub.sovendus.com/Integration-Tester)
+- **🛠️ Integration Tester**: [Test Your Setup](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Integration-Tester)
 - **💬 Support**: Contact your Sovendus account manager
 - **🔒 CSP Resources**: [MDN CSP Guide](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
 

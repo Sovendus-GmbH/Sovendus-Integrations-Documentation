@@ -1,34 +1,35 @@
-# Upgrading from Profity to Sovendus Voucher Network
+# 🔄 Upgrading from Profity to Sovendus Voucher Network
 
 This guide provides a clear, step-by-step process to upgrade your integration from Profity to the Sovendus Voucher Network. Follow the instructions below to ensure a smooth transition.
 
+---
+
+> [!WARNING]
+> **GetBack Users Notice**
+> If you're using **GetBack** (now called **Sovendus Optimize**) alongside Profity, there is no need to modify your GetBack integration. Only replace your Profity integration with the new Sovendus Voucher Network code.
 
 ---
 
-> **Note:** If you’re using **GetBack** (now called **Sovendus Optimize**) alongside Profity, there is no need to modify your GetBack integration. Only replace your Profity integration with the new Sovendus Voucher Network code.
+## 📋 TL;DR Checklist
+
+- [ ] **Obtain Sovendus Identifiers**
+  Contact your account manager to receive your unique Sovendus traffic source and medium numbers.
+
+- [ ] **Choose Your Integration Method**
+  - **Platform-Specific Plugins/Components:** Ideal for a quick, streamlined setup
+  - **Manual Integration:** Follow the detailed code examples provided below
+  - [📖 Full instructions are available here](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Web-Integration)
+
+- [ ] **Remove Old Profity Code**
+  Delete all existing Profity conversion and landing scripts from your pages.
+
+- [ ] **Test Your Integration**
+  Run tests using our integration testing app and verify that the integration has no issues.
+  - [🧪 Complete testing instructions available here](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Integration-Tester/VN)
 
 ---
 
-## TL;DR Checklist
-
-- [ ] **Obtain Sovendus Identifiers:**
-  - If you haven't already, contact your account manager to receive your unique Sovendus traffic source and medium numbers.
-
-- [ ] **Choose Your Integration Method:**
-  - **Platform-Specific Plugins/Components:** Ideal for a quick, streamlined setup.
-  - **Manual Integration:** Follow the detailed code examples provided below.
-  - [Full instructions are available here](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Web-Integration)
-
-- [ ] **Remove Old Profity Code:**
-  - Delete all existing Profity conversion and landing scripts from your pages.
-
-- [ ] **Test Your Integration:**
-  - Run tests using our integration testing app and verify that the integration has no issues.
-  - [Here you can find the complete instructions for the Sovendus Testing App](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Integration-Tester/VN).
-
----
-
-## 1. Previous Integration Setup
+## 🔍 1. Previous Integration Setup
 
 Before upgrading, your Profity integration typically looked like this:
 
@@ -44,24 +45,29 @@ Before upgrading, your Profity integration typically looked like this:
 <script async src="https://domain/clients/main.js"></script>
 ```
 
-**Important:** Remove these Profity scripts entirely to avoid conflicts with the new Sovendus integration.
+> [!WARNING]
+> **Critical: Remove Old Scripts**
+> Remove these Profity scripts entirely to avoid conflicts with the new Sovendus integration. Having both old and new scripts active simultaneously can cause tracking issues and data inconsistencies.
 
 ---
 
-## 2. Integration Options
+## ⚙️ 2. Integration Options
 
 Sovendus offers two alternatives for integration:
 
-### A. Platform-Specific Plugins/Components
+### 🚀 A. Platform-Specific Plugins/Components
 
-For a fast and hassle-free setup, we recommend using our platform-specific plugins or components. These options are optimized for your platform and reduce manual configuration.  
-Learn more at: [Sovendus Plugins & Components](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Web-Integration).
+For a fast and hassle-free setup, we recommend using our platform-specific plugins or components. These options are optimized for your platform and reduce manual configuration.
 
-### B. Manual Integration
+> [!INFO]
+> **Recommended Approach**
+> Learn more at: [🔌 Sovendus Plugins & Components](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Web-Integration)
 
-#### i. Order Success/Thank You Page
+### 🛠️ B. Manual Integration
 
-1. **Insert the Container Markup**  
+#### 📄 i. Order Success/Thank You Page
+
+1. **Insert the Container Markup**
    Place the following `<div>` in your Order Success/Thank You page where you want the Sovendus content to be displayed. (This does not affect the positioning of the Sovendus sticky banner or overlay.)
 
    ```html
@@ -70,13 +76,17 @@ Learn more at: [Sovendus Plugins & Components](https://developer-hub.sovendus.co
    </div>
    ```
 
-2. **Add the Integration Script**  
+2. **Add the Integration Script**
    Insert the script below at the end of your `<body>` tag. Replace all placeholder values with the appropriate dynamic data from your system:
 
-   - **YOUR_TRAFFIC_SOURCE_NUMBER:** Your Sovendus traffic source number (provided by your account manager).
-   - **YOUR_TRAFFIC_MEDIUM_NUMBER:** Your Sovendus traffic medium number (provided by your account manager).
-   - **Session-ID, Timestamp, Order-ID, Order Value, Order Currency, Used Coupon Code:** Replace these with dynamic values from your system.
-   - **Customer Data:** Replace with the actual customer information from your system.
+> [!EXAMPLE]
+> **Parameter Configuration**
+> Replace these placeholders with your actual values:
+>
+> - **YOUR_TRAFFIC_SOURCE_NUMBER:** Your Sovendus traffic source number (provided by your account manager)
+> - **YOUR_TRAFFIC_MEDIUM_NUMBER:** Your Sovendus traffic medium number (provided by your account manager)
+> - **Session-ID, Order-ID, Order Value, Order Currency, Used Coupon Code:** Replace these with dynamic values from your system
+> - **Customer Data:** Replace with the actual customer information from your system
 
    ```html
    <!--sovendus code begin -->
@@ -116,7 +126,7 @@ Learn more at: [Sovendus Plugins & Components](https://developer-hub.sovendus.co
    <!--sovendus code end -->
    ```
 
-#### ii. Landing Page Integration
+#### 🌐 ii. Landing Page Integration
 
 Replace the old Profity landing page script with the new Sovendus landing page script:
 
@@ -126,27 +136,31 @@ Replace the old Profity landing page script with the new Sovendus landing page s
 
 ---
 
-## 3. Testing Your Integration
+## 🧪 3. Testing Your Integration
 
 After updating your integration, ensure everything works as expected by following these testing steps:
 
-### Quick Testing Overview
+### 📋 Quick Testing Overview
 
-- **Install the Integration Tester Extension:**  
+- **Install the Integration Tester Extension**
   Available for Chrome, Edge, or Firefox, this extension allows you to run self-tests on your integration.
 
-- **Place a Test Order:**  
+- **Place a Test Order**
   Use a voucher code and place an order on both desktop and mobile devices. Confirm that the self-test overlay displays correct order, consumer, and integration data.
 
-- **Review Test Results:**  
+- **Review Test Results**
   Use the overlay’s info icons to check for any errors. Once the test is successful, forward the results to your account manager.
 
-For detailed testing instructions, refer to the [Sovendus Testing Docs](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Integration-Tester/VN).
+> [!INFO]
+> **Complete Testing Guide**
+> For detailed testing instructions, refer to the [🧪 Sovendus Testing Docs](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Integration-Tester/VN).
 
 ---
 
-By following this guide, you can successfully upgrade your integration from Profity to the Sovendus Voucher Network. Remember to remove all outdated Profity code and ensure that only the new Sovendus scripts are active. If you have any questions or require assistance, please contact your Sovendus account manager.
-
-Happy integrating!
+> [!INFO]
+> **Need Help?**
+> If you have any questions or require assistance, please contact your Sovendus account manager.
 
 ---
+
+🎉 **Happy integrating!**

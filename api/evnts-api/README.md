@@ -189,22 +189,19 @@ const sovendusEvents = new SovendusEventHandler();
 
 ### Common Issues
 
-**Events not firing**
+- **Events not firing**
+  - Verify `window.sovApi` is set before the Sovendus script loads
+  - Check browser console for JavaScript errors
+  - Ensure event listener is attached to the correct window object
 
-- Verify `window.sovApi` is set before the Sovendus script loads
-- Check browser console for JavaScript errors
-- Ensure event listener is attached to the correct window object
+- **Security errors**
+  - Verify origin validation logic
+  - Check if your domain matches the expected origin
+  - Ensure HTTPS is used in production
 
-**Security errors**
-
-- Verify origin validation logic
-- Check if your domain matches the expected origin
-- Ensure HTTPS is used in production
-
-**Version conflicts**
-
-- Use specific version numbers instead of "latest"
-- Check payload structure matches expected version format
+- **Version conflicts**
+  - Use specific version numbers instead of "latest"
+  - Check payload structure matches expected version format
 
 ### 🔧 Debug Helper
 
@@ -229,7 +226,6 @@ window.addEventListener("message", (event) => {
 Need additional events or have questions about implementation?
 
 - **Contact**: Your Sovendus account manager
-- **Documentation**: [Developer Hub](https://developer-hub.sovendus.com)
 - **Integration Testing**: Use our debug helper above
 
 ---
