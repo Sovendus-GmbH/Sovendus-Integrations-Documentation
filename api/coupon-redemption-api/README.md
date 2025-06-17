@@ -25,7 +25,7 @@ The API call should be made at the moment of purchase completion:
 - When inserting the transaction into your shop system's 'Order DB'
 
 > [!WARNING]
-> **Important** 
+> **Important**
 > The API call must happen just-in-time with the order and not be deferred, such as during a monthly reconciliation.
 
 ## 🛠️ Technical Implementation
