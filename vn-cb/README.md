@@ -1,7 +1,7 @@
 # 🌐 Voucher Network & Checkout Benefits Integration
 
 > [!INFO]
-> **Integration Overview**
+> **Integration Overview:**
 > This documentation helps you successfully integrate Sovendus Voucher Network and/or Checkout Benefits into your shop using JavaScript on the order success page.
 
 ## 🎯 What You'll Achieve
