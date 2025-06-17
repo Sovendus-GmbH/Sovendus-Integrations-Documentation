@@ -110,15 +110,14 @@ header("Content-Security-Policy: connect-src 'self' https://*.sovendus.com https
 
 ### Pre-Implementation
 
-
-- [ ] **Plan implementation method**
+- **Plan implementation method**
   - [ ] Choose server-level vs application-level
   - [ ] Consider staging environment testing
   - [ ] Prepare rollback plan
 
 ### Implementation Steps
 
-- [ ] **Update CSP configuration**
+- **Update CSP configuration**
   - [ ] Add connect-src directives
   - [ ] Add font-src directives
   - [ ] Add frame-src directives
@@ -126,7 +125,7 @@ header("Content-Security-Policy: connect-src 'self' https://*.sovendus.com https
   - [ ] Add script-src directives
   - [ ] Add style-src directives
 
-- [ ] **Test configuration**
+- **Test configuration**
   - [ ] Verify Sovendus banner loads
   - [ ] Check browser console for CSP errors
   - [ ] Test all Sovendus functionality
@@ -141,9 +140,9 @@ header("Content-Security-Policy: connect-src 'self' https://*.sovendus.com https
 | Error | Cause | Solution |
 |-------|-------|----------|
 | **Refused to connect** | Missing connect-src | Add Sovendus domains to connect-src |
-| **Refused to load font** | Missing font-src | Add **https://*.sovendus.com`** to font-src |
+| **Refused to load font** | Missing font-src | Add **https://*.sovendus.com** to font-src |
 | **Refused to frame** | Missing frame-src | Add Sovendus domains to frame-src |
-| **Refused to load image** | Missing img-src | Add **data:`** and Sovendus domains to img-src |
+| **Refused to load image** | Missing img-src | Add **data:** and Sovendus domains to img-src |
 | **Refused to execute script** | Missing script-src | Add **'unsafe-inline'** and Sovendus domains |
 | **Refused to apply style** | Missing style-src | Add **'unsafe-inline'** and Sovendus domains |
 
@@ -186,11 +185,11 @@ Content-Security-Policy: connect-src 'self' https://*.sovendus.com;
 
 ## ⚠️ Important Warnings
 
-> [! WARNING]
+> [!WARNING]
 > **Production Safety**
 > The example code provided is for testing purposes only. Do not use the test code in production environments without proper security review.
 
-> [! INFO]
+> [!INFO]
 > **Testing Recommendation**
 > Always test CSP changes in a staging environment before deploying to production.
 

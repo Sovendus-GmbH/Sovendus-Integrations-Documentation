@@ -13,22 +13,22 @@
 
 ## 📋 Integration Checklist
 
-- [ ] **Obtain Sovendus Identifiers**
+- **Obtain Sovendus Identifiers**
   Contact your account manager to receive your unique traffic source and medium numbers.
 
-- [ ] **Prepare Order Success Page**
+- **Prepare Order Success Page**
   Identify where to place the Sovendus container in your thank you page.
 
-- [ ] **Implement HTML Markup**
+- **Implement HTML Markup**
   Add the container div to your order success page.
 
-- [ ] **Configure JavaScript Integration**
+- **Configure JavaScript Integration**
   Replace placeholder values with your actual data.
 
-- [ ] **Test Integration**
+- **Test Integration**
   Verify implementation using test orders.
 
-- [ ] **Switzerland Setup** (if applicable)
+- **Switzerland Setup** (if applicable)
   Add landing page script for Swiss customers.
 
 ---
@@ -40,9 +40,8 @@ The implementation uses JavaScript on your shop's order success page. An iFrame 
 1. **Retrieve personalized content** - Individual reward banners and offers
 2. **Embed on your page** - Seamlessly integrate with your checkout flow
 3. **Track redemptions** - Monitor successful voucher usage
-4. **Provide analytics** - Detailed performance insights
 
-Your personal banner and offer list will be created by Sovendus and made available on our servers.
+Your personal banner and/or offer list will be created by Sovendus and made available on our servers.
 
 > [!WARNING]
 > **Need Help?**
@@ -65,7 +64,14 @@ Add this HTML markup to your order success/thank you page where you want the Sov
 
 > [!WARNING]
 > **Container Placement**
-> The position of this container doesn't affect the placement of the Sovendus sticky banner and overlay if you're using one.
+> The position of this container doesn't affect the placement of the Sovendus sticky banner and overlay vartiants if you're using one.
+
+> [!INFO]
+> **When is the container required?**
+> The container is only required when one of the following is true for you:
+>
+> - you are using an inline/embedded version
+> - you are using a SPA (single page app) as the existence of this container will trigger the sovendus overlay removal process. If you are not using an inline/embedded version and not using a SPA, you can safely ignore this container.
 
 ### Step 2: Replace Placeholder Variables
 
