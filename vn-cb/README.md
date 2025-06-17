@@ -22,8 +22,8 @@
 - **Implement HTML Markup**
   Add the container div to your order success page.
 
-- **Configure JavaScript Integration**
-  Replace placeholder values with your actual data.
+- **JavaScript Integration**
+  Replace placeholder values with your actual order data and add the script to your order success page.
 
 - **Test Integration**
   Verify implementation using test orders.
