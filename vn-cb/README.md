@@ -26,7 +26,7 @@
   Replace placeholder values with your actual order data and add the script to your order success page.
 
 - **Test Integration**
-  Verify implementation using test orders.
+  Verify your implementation by placing a test order and using our [integration testing app](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Integration-Tester) to validate data transmission. Send screenshots to your account manager for final verification.
 
 - **Switzerland Setup** (if applicable)
   Add landing page script for Swiss customers.
@@ -70,8 +70,10 @@ Add this HTML markup to your order success/thank you page where you want the Sov
 > **When is the container required?**
 > The container is only required when one of the following is true for you:
 >
-> - you are using an inline/embedded version
-> - you are using a SPA (single page app) as the existence of this container will trigger the sovendus overlay removal process. If you are not using an inline/embedded version and not using a SPA, you can safely ignore this container.
+> - you are using an **inline/embedded** version of our banner or product list
+> - you are using a **SPA** (single page app - e.g. react, angular, vue, etc.) as the existence of this container will trigger the sovendus overlay removal process
+>
+> **If you are not using an inline/embedded version and not using a SPA, you can safely ignore this container.**
 
 ### Step 2: Replace Placeholder Variables
 
@@ -79,8 +81,8 @@ Before implementing the JavaScript code, obtain these values from your Sovendus 
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `TRAFFIC_SOURCE_NUMBER` | Your unique traffic source identifier | `12345` |
-| `TRAFFIC_MEDIUM_NUMBER` | Your unique traffic medium identifier | `67890` |
+| `TRAFFIC_SOURCE_NUMBER` | Your unique traffic source identifier | `1234567` |
+| `TRAFFIC_MEDIUM_NUMBER` | Your unique traffic medium identifier | `123` |
 
 ### Step 3: JavaScript Integration
 
@@ -137,12 +139,39 @@ Replace the placeholder values with actual data from your order form or user dat
 
 ### Step 5: Test the Integration
 
-After implementing the code:
+After implementing the code, follow these comprehensive testing steps:
 
-1. **Place a test order** on your website
-2. **Check the order success page** for the Sovendus banner or overlay
-3. **Verify data transmission** using our integration tools
-4. **Test different scenarios** (with/without coupons, different order values)
+> [!INFO]
+> **Testing Requirements**
+> Complete testing is essential to ensure proper data transmission and banner display. Your account manager needs verification screenshots before going live.
+
+#### 🧪 Testing Process
+
+1. **Place a Test Order**
+   - Complete a real transaction on your website
+   - Use realistic order data (products, quantities, pricing)
+   - Include customer information in the checkout process
+
+2. **Verify Banner Display**
+   - Check your order success/thank you page immediately after checkout
+   - Look for the Sovendus banner, overlay, or embedded content
+   - Note the banner position and appearance
+
+3. **Validate Data Transmission**
+   - Use our [Integration Testing App](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Integration-Tester)
+   - Check that consumer data and order information match your test order
+
+4. **Test Multiple Scenarios**
+   - **With coupon codes**: Test orders using discount codes
+   - **Without coupon codes**: Test standard orders
+   - **With consent given**: Test when users accept marketing/personalized consent
+   - **Without consent**: Test when users decline or haven't provided consent
+
+5. **Document and Share Results**
+   - Take screenshots of the banner display on your success page
+   - Capture screenshots of the integration testing app results
+   - Send all screenshots to your Sovendus account manager
+   - Include any error messages or unexpected behavior
 
 ---
 
@@ -284,7 +313,7 @@ Use consent state functions:
 ## 🔗 Additional Resources
 
 - [📖 Parameter Documentation](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Parameter)
-- [🛠️ Integration Testing](https://developer-hub.sovendus.com/Integration-Tester)
+- [🛠️ Integration Testing](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Integration-Tester)
 
 ---
 
