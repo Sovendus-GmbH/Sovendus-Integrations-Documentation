@@ -1,12 +1,14 @@
 # 🛍️ Sovendus App for Shopify
 
+## ✅ Prerequisites
+
+### Verify Your Checkout Version
+
+
 > [!WARNING]
 > **New Shopify Checkout Required**
 > This app only works with Shopify's new "Checkout Extensibility" version. [View docs for the old version](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Web-Integration/Shopify-Integration-(old-version))
 
-## ✅ Prerequisites
-
-### Verify Your Checkout Version
 
 Check if you're using the new checkout: **Settings → Checkout**
 
