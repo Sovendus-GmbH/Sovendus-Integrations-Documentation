@@ -97,10 +97,12 @@ document.addEventListener('DOMContentLoaded', fireSovendusPixel);
 ## ⚠️ Important Notes
 
 > [!WARNING]
-> **Only fire the pixel if a token exists** - this ensures you only track users who came from Sovendus partners.
+> **Only fire the pixel if a token exists**
+> This ensures you only track users who came from Sovendus partners.
 
 > [!INFO]
-> **Token parameter name** can be customized. Contact Sovendus if you need to change `sovReqToken`.
+> **Token parameter name**
+> The token parameter name can be customized. Contact Sovendus if you need to change `sovReqToken`.
 
 ---
 
