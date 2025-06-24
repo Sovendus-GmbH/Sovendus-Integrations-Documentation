@@ -4,7 +4,7 @@
 
 To transfer leads/newsletter registrations from customers to your system in an automated and timely manner, Sovendus can call an interface provided by you. The data is transmitted via the URL parameters of an HTTP GET request (also called a "webhook") or an HTTP POST request. The customer data provided can then be further processed by your system as desired.
 
-## Example GET Request
+## 🌐 Example GET Request
 
 An example URL you provide to transfer the leads/newsletter sign-ups could look like this:
 
@@ -13,7 +13,7 @@ An example URL you provide to transfer the leads/newsletter sign-ups could look 
 > [!ERROR]
 > To ensure a secure connection, the HTTPS protocol (with a valid certificate) must be used to transfer the data!
 
-### Transmission Parameters
+### 📋 Transmission Parameters
 
 > [!WARNING]
 > Parameters can have different names e.g., firstname could be first_name or any other name.
@@ -57,7 +57,7 @@ An example request from our system could look like this with the following regis
 
 All transmitted parameters are URL encoded, and the character set used is UTF-8.
 
-### Authentication
+### 🔒 Authentication
 
 To prevent unauthorized access to your interface, access to the URL should be secured via HTTP authentication (Basic Authentication).
 
@@ -68,7 +68,7 @@ To prevent unauthorized access to your interface, access to the URL should be se
 > [!ERROR]
 > Username and password for authentication should be submitted to Sovendus in a secure way.
 
-### Return Values
+### 🔄 Return Values
 
 For Sovendus to determine successful transmission, your interface should return as precise an HTTP status code as possible in the range 200-299.
 
@@ -76,7 +76,7 @@ For unsuccessful transmission, your interface should return as precise an HTTP s
 
 In case of errors, Sovendus will attempt to submit requests to the interface up to 10 times, waiting 10 minutes between each request. Nevertheless, you should ensure that the interface is permanently available.
 
-## Example POST Request
+## 🌐 Example POST Request
 
 A POST request you provide to transfer the leads/newsletter sign-ups could look like this:
 
@@ -111,7 +111,7 @@ https://signup.api.com/newsletter_signup
 > [!ERROR]
 > To ensure a secure connection, the HTTPS protocol (with a valid certificate) must be used to transfer the data!
 
-### Transmission Parameters
+### 📋 Transmission Parameters
 
 > [!WARNING]
 > Parameters can have different names e.g., firstname could be first_name or any other name.
@@ -176,7 +176,7 @@ https://signup.api.com/newsletter_signup
 
 The character set used is UTF-8.
 
-### Authentication
+### 🔒 Authentication
 
 To prevent unauthorized access to your interface, access to the URL should be secured via HTTP authentication (Basic Authentication).
 
@@ -198,7 +198,7 @@ To prevent unauthorized access to your interface, we support authentication toke
 > [!ERROR]
 > Username and password for authentication should be submitted to Sovendus in a secure way.
 
-### Return values
+### 🔄 Return values
 
 For Sovendus to determine successful transmission, your interface should return as precise an HTTP status code as possible in the range 200-299.
 
@@ -206,11 +206,11 @@ For unsuccessful transmission, your interface should return as precise an HTTP s
 
 In case of errors, Sovendus will attempt to submit requests to the interface up to 10 times, waiting 10 minutes between each request. Nevertheless, you should ensure that the interface is permanently available.
 
-## Data protection
+## 🔐 Data protection
 
 In any communication with Sovendus, the identification of the data record must take place by means of the ID provided by Sovendus and must not take place by means of personal data. Therefore, this characteristic should be stored for each data record.
 
-## Example implementation
+## 💻 Example implementation
 
 For your help, we provide you a sample HTTP GET endpoint script in PHP. This script takes the data, decodes the values, and writes them into a JSON file.
 You are free to use, modify or extend this sample code. Of course, you can also use your own implementation.

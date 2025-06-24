@@ -1,6 +1,6 @@
-# 🧪 Connect ActiveCampaign
+# Connect ActiveCampaign
 
-## 📋 Steps for Integration
+## 📝 Steps to Connect ActiveCampaign
 
 1. **List ID**:  
    You can find the List ID by clicking on the list in your ActiveCampaign account and checking the URL bar. It looks like this:  
