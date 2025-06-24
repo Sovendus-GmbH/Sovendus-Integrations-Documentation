@@ -1,5 +1,7 @@
 # Connect ExpertSender
 
+## 📝 Steps to Connect ExpertSender
+
 1. **Create an ExpertSender API key**
    - Navigate to Settings → API in your ExpertSender account.
 

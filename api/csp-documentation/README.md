@@ -1,4 +1,4 @@
-# 🔒 Content Security Policy Configuration
+# Content Security Policy Configuration
 
 Configure your Content Security Policy (CSP) headers to ensure Sovendus Voucher Network & Checkout Benefits works seamlessly with your website's security settings.
 

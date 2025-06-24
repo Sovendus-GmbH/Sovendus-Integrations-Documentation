@@ -1,4 +1,4 @@
-# 🎁 Sovendus Rewards Integration
+# Sovendus Rewards Integration
 
 > [!INFO]
 > **Rewards Portal Overview**
@@ -13,12 +13,12 @@
 
 ## 📋 Integration Checklist
 
-- [ ] **Choose Entry Point**: Decide where to place the rewards portal
-- [ ] **Get Sovendus Credentials**: Obtain traffic source and medium numbers
-- [ ] **Add HTML Container**: Insert the rewards portal container
-- [ ] **Configure JavaScript**: Set up the integration script
-- [ ] **Provide Customer Data**: Map user information to Sovendus format
-- [ ] **Test Portal**: Verify rewards portal loads and functions correctly
+- [ ] **Choose Entry Point:** Decide where to place the rewards portal
+- [ ] **Get Sovendus Credentials:** Obtain traffic source and medium numbers
+- [ ] **Add HTML Container:** Insert the rewards portal container
+- [ ] **Configure JavaScript:** Set up the integration script
+- [ ] **Provide Customer Data:** Map user information to Sovendus format
+- [ ] **Test Portal:** Verify rewards portal loads and functions correctly
 
 ---
 
@@ -126,11 +126,11 @@ Replace the placeholder values with actual customer data from your user database
 
 #### ✅ Testing Checklist
 
-- [ ] **Portal Loading**: Verify the Sovendus rewards portal loads correctly
-- [ ] **Customer Data**: Ensure customer information is passed accurately
-- [ ] **Console Errors**: Check browser console for JavaScript errors
-- [ ] **Responsive Design**: Test on different screen sizes and devices
-- [ ] **User Experience**: Verify smooth navigation and functionality
+- [ ] **Portal Loading:y** Verify the Sovendus rewards portal loads correctly
+- [ ] **Customer Data:** Ensure customer information is passed accurately
+- [ ] **Console Errors:** Check browser console for JavaScript errors
+- [ ] **Responsive Design:** Test on different screen sizes and devices
+- [ ] **User Experience:** Verify smooth navigation and functionality
 
 #### 🔍 Troubleshooting
 

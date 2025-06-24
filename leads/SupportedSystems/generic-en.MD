@@ -1,4 +1,4 @@
-# 🔗 Generic Newsletter System Integration
+# Generic Newsletter System Integration
 
 > [!INFO]
 > If your newsletter system isn't supported yet, we can help you integrate it. This guide walks you through the process.
@@ -16,7 +16,7 @@ Before reaching out to Sovendus, please gather:
 | `API Docs` | Link to API documentation | `docs.custommailer.com/api` |
 | `Website` | Official platform URL | `custommailer.com` |
 
-### 📧 Contact Sovendus
+### 📧 Contact your Sovendus Account Manager
 
 Ready to integrate? Send us this information:
 

@@ -1,4 +1,4 @@
-# 🖥️ Server-Side Integration
+# Server-Side Integration
 
 Track conversions from Sovendus partners with a server-to-server API integration.
 
