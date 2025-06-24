@@ -1,4 +1,4 @@
-# 🛒 Frontend Integration
+# Frontend Integration
 
 Track conversions from Sovendus partners with a simple JavaScript integration.
 
