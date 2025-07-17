@@ -101,22 +101,22 @@ Add this script to the end of the `<body>` section of your rewards page:
 
 Replace the placeholder values with actual customer data from your user database:
 
-| Placeholder | Description | Required | Example |
+| Placeholder | Description | Example |
 |-------------|-------------|----------|---------|
-| `TRAFFIC_SOURCE_NUMBER` | Your Sovendus traffic source number | ✅ | `12345` |
-| `TRAFFIC_MEDIUM_NUMBER` | Your Sovendus traffic medium number | ✅ | `67890` |
-| `SALUTATION` | Customer salutation | ❌ | `Mr.` or `Mrs.` |
-| `FIRST_NAME` | Customer first name | ❌ | `John` |
-| `LAST_NAME` | Customer last name | ❌ | `Doe` |
-| `EMAIL_ADDRESS` | Customer email address | ✅ | `john@example.com` |
-| `STREET_ADDRESS` | Customer street address | ❌ | `Main Street` |
-| `STREET_NUMBER` | House/building number | ❌ | `123` |
-| `ZIP_CODE` | Postal code | ❌ | `12345` |
-| `CITY` | Customer city | ❌ | `Berlin` |
-| `COUNTRY_CODE` | Country code | ❌ | `DE` |
-| `PHONE_NUMBER` | Customer phone number | ❌ | `+49123456789` |
-| `YEAR_OF_BIRTH` | Birth year | ❌ | `1990` |
-| `DATE_OF_BIRTH` | Full birth date | ❌ | `1990-01-01` |
+| `TRAFFIC_SOURCE_NUMBER` | Your Sovendus traffic source number | `12345` |
+| `TRAFFIC_MEDIUM_NUMBER` | Your Sovendus traffic medium number | `67890` |
+| `SALUTATION` | Customer salutation | `Mr.` or `Mrs.` |
+| `FIRST_NAME` | Customer first name | `John` |
+| `LAST_NAME` | Customer last name | `Doe` |
+| `EMAIL_ADDRESS` | Customer email address | `john@example.com` |
+| `STREET_ADDRESS` | Customer street address | `Main Street` |
+| `STREET_NUMBER` | House/building number | `123` |
+| `ZIP_CODE` | Postal code | `12345` |
+| `CITY` | Customer city | `Berlin` |
+| `COUNTRY_CODE` | Country code | `DE` |
+| `PHONE_NUMBER` | Customer phone number | `+49123456789` |
+| `YEAR_OF_BIRTH` | Birth year | `1990` |
+| `DATE_OF_BIRTH` | Full birth date | `1990-01-01` |
 
 > [!WARNING]
 > **Dynamic Data Required**
