@@ -126,7 +126,7 @@ Replace the placeholder values with actual customer data from your user database
 
 #### ✅ Testing Checklist
 
-- [ ] **Portal Loading:y** Verify the Sovendus rewards portal loads correctly
+- [ ] **Portal Loading:** Verify the Sovendus rewards portal loads correctly
 - [ ] **Customer Data:** Ensure customer information is passed accurately
 - [ ] **Console Errors:** Check browser console for JavaScript errors
 - [ ] **Responsive Design:** Test on different screen sizes and devices
