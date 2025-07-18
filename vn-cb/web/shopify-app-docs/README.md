@@ -4,11 +4,9 @@
 
 ### Verify Your Checkout Version
 
-
 > [!WARNING]
 > **New Shopify Checkout Required**
 > This app only works with Shopify's new "Checkout Extensibility" version. [View docs for the old version](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Web-Integration/Shopify-Integration-(old-version))
-
 
 Check if you're using the new checkout: **Settings → Checkout**
 
@@ -41,8 +39,48 @@ Check if you're using the new checkout: **Settings → Checkout**
 
 ### Step 3: Configure Settings
 
-- Navigate to the Sovendus App in your Shopify admin
-- Follow the in-app configuration instructions
+#### Voucher Network / Checkout Benefits
+
+> [!INFO]
+> **Voucher Network / Checkout Benefits Configuration**
+>
+> 1. Navigate to the Sovendus App in your Shopify admin
+> 2. Click on the configure button in the Voucher Network & Checkout Benefits section
+> 3. Scroll down to the country settings and enter the traffic source and medium numbers provided by Sovendus for your country/countries
+> 4. To apply the change simply close the settings overlay on the green exit button on the top right
+
+> [!WARNING]
+> **Sovendus Widget Required**
+>
+> 1. Go to "Settings" -> "Checkout" -> click on "Customize" to customize your checkout pages
+> 2. Click on "Checkout" in the top middle and then on "Thank you"
+> 3. Click on "Add App block" on the bottom left, then on "Sovendus App" and then "Save"
+> 4. Ensure the banners position above eventual other widgets
+    ![Shopify App Positioning](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Integrations-Documentation/main/vn-cb/web/shopify-app-docs/thank-you-position.png)
+> 5. Click on "Thank you" in the top middle and then on "Order status"
+> 6. Click on "Add App block" on the bottom left, then on "Sovendus App" and then "Save"
+> 7. Ensure the banners position above eventual other widgets
+    ![Shopify App Positioning](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Integrations-Documentation/main/vn-cb/web/shopify-app-docs/order-status-position.png)
+
+#### Checkout Products
+
+Just Enable the "Checkout Products" toggle in the app settings and you are done.
+
+#### Optimize
+
+> [!INFO]
+> **Optimize Configuration**
+>
+> 1. Enter your optimize ID provided by Sovendus in the app settings, depending on your setup, you might want to set a different ID for each country
+> 2. To apply the change simply close the settings overlay on the green exit button on the top right
+
+> [!WARNING]
+> **Storefront Script Required**
+>
+> 1. In your Shopify backend click on "Online Store" and then on "Themes"
+> 2. On your current theme click on "Customize"
+> 3. Click on "App embeds" on the left in the sidebar
+> 4. Enable the Storefront Script for the Sovendus App and click on "Save"
 
 ### Step 4: Testing & Verification
 
