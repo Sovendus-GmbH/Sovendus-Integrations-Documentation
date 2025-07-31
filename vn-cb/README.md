@@ -1,4 +1,4 @@
-# 🌐 Voucher Network & Checkout Benefits Integration
+# Voucher Network & Checkout Benefits Integration
 
 > [!INFO]
 > **Integration Overview**
