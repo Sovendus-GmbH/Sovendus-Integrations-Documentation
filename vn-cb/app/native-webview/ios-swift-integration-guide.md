@@ -232,7 +232,7 @@ class SovendusBanner: UIView {
 
 ### 4. WebView Delegate and Message Handling
 
-> [!IMPORTANT]
+> [!WARNING]
 > **Navigation Suppression Required**
 > All navigation requests within the WebView must be suppressed to prevent external links from opening within the WebView. Instead, use the post message bridge to handle URL opening in the native browser.
 
@@ -240,7 +240,7 @@ class SovendusBanner: UIView {
 extension SovendusBanner: WKNavigationDelegate, WKScriptMessageHandler {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction,
                  decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        // CRITICAL: Always cancel navigation to prevent links from opening in WebView
+        // WARNING: Always cancel navigation to prevent links from opening in WebView
         // Links will be handled via the post message bridge instead
         decisionHandler(.cancel)
     }
@@ -512,23 +512,26 @@ class OrderSuccessViewController: UIViewController {
 ## 🔧 Key Implementation Requirements
 
 ### Navigation Suppression
->
-> [!CRITICAL]
-> **All navigation requests within the WebView MUST be suppressed** by returning `.cancel` in `decidePolicyFor navigationAction`. This prevents external links from opening within the WebView and ensures they are handled via the post message bridge instead.
+
+> [!WARNING]
+> **All navigation requests within the WebView MUST be suppressed**
+> by returning `.cancel` in `decidePolicyFor navigationAction`. This prevents external links from opening within the WebView and ensures they are handled via the post message bridge instead.
 
 ### Post Message Bridge for URL Handling
->
-> [!IMPORTANT]
-> **URL Opening Pattern**: The integration uses a post message bridge to handle URL opening:
+
+> [!WARNING]
+> **URL Opening Pattern:**
+> The integration uses a post message bridge to handle URL opening:
 >
 > 1. Sovendus content sends messages via `window.postMessage()` with channel `"sovendus:integration"`
 > 2. JavaScript listener catches these messages and forwards them to native code via `window.webkit.messageHandlers.sovHandler.postMessage()`
 > 3. Native code receives the message and opens the URL in Safari View Controller
 
 ### Dynamic Height Management
->
-> [!IMPORTANT]
-> **Height Adjustment Pattern**: The WebView height must dynamically adjust based on content:
+
+> [!WARNING]
+> **Height Adjustment Pattern:**
+> The WebView height must dynamically adjust based on content:
 >
 > 1. `ResizeObserver` monitors changes to `document.body.scrollHeight`
 > 2. Height changes are sent to native code via the JavaScript bridge

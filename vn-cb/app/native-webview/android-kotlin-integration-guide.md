@@ -197,7 +197,7 @@ class SovendusBanner @JvmOverloads constructor(
             
             webViewClient = object : WebViewClient() {
                 override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
-                    // CRITICAL: Always return true to prevent navigation within WebView
+                    // WARNING: Always return true to prevent navigation within WebView
                     // All URL opening will be handled via the post message bridge instead
                     return true
                 }
@@ -462,23 +462,26 @@ class OrderSuccessActivity : AppCompatActivity() {
 ## 🔧 Key Implementation Requirements
 
 ### Navigation Suppression
->
-> [!CRITICAL]
-> **All navigation requests within the WebView MUST be suppressed** by returning `true` in `shouldOverrideUrlLoading()`. This prevents external links from opening within the WebView and ensures they are handled via the post message bridge instead.
+
+> [!WARNING]
+> **All navigation requests within the WebView MUST be suppressed**
+> by returning `true` in `shouldOverrideUrlLoading()`. This prevents external links from opening within the WebView and ensures they are handled via the post message bridge instead.
 
 ### Post Message Bridge for URL Handling
->
-> [!IMPORTANT]
-> **URL Opening Pattern**: The integration uses a post message bridge to handle URL opening:
+
+> [!WARNING]
+> **URL Opening Pattern:**
+> The integration uses a post message bridge to handle URL opening:
 >
 > 1. Sovendus content sends messages via `window.postMessage()` with channel `"sovendus:integration"`
 > 2. JavaScript listener catches these messages and forwards them to native code via `window.sovHandler.postMessage()`
 > 3. Native code receives the message in the JavaScriptInterface and opens the URL in the default browser
 
 ### Dynamic Height Management
->
-> [!IMPORTANT]
-> **Height Adjustment Pattern**: The WebView height must dynamically adjust based on content:
+
+> [!WARNING]
+> **Height Adjustment Pattern:**
+> The WebView height must dynamically adjust based on content:
 >
 > 1. `ResizeObserver` monitors changes to `document.body.scrollHeight`
 > 2. Height changes are sent to native code via the JavaScript bridge

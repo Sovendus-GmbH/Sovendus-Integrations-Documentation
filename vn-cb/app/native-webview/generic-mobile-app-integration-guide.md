@@ -94,8 +94,9 @@ Use the following HTML template for the WebView:
 
 ### 3. Navigation Suppression and URL Handling
 
-> [!CRITICAL]
-> **All navigation requests within the WebView MUST be suppressed** to prevent external links from opening within the WebView. Instead, use the post message bridge to handle URL opening in the native browser.
+> [!WARNING]
+> **All navigation requests within the WebView MUST be suppressed**
+> to prevent external links from opening within the WebView. Instead, use the post message bridge to handle URL opening in the native browser.
 
 **Required Implementation:**
 
@@ -123,8 +124,9 @@ window.addEventListener("message", (event) => {
 
 ### 4. Implement Dynamic Height Adjustment
 
-> [!IMPORTANT]
-> **Dynamic Height Management Required**: The WebView height must dynamically adjust based on content size to provide optimal user experience.
+> [!WARNING]
+> **Dynamic Height Management Required:**
+> The WebView height must dynamically adjust based on content size to provide optimal user experience.
 
 **Standard Implementation:**
 
@@ -161,23 +163,26 @@ Add comprehensive error handling for:
 ## 🔧 Key Implementation Requirements
 
 ### Navigation Suppression
->
-> [!CRITICAL]
-> **All navigation requests within the WebView MUST be suppressed** to prevent external links from opening within the WebView. Configure your WebView to cancel/prevent all navigation attempts and handle URLs via the post message bridge instead.
+
+> [!WARNING]
+> **All navigation requests within the WebView MUST be suppressed**
+> to prevent external links from opening within the WebView. Configure your WebView to cancel/prevent all navigation attempts and handle URLs via the post message bridge instead.
 
 ### Post Message Bridge for URL Handling
->
-> [!IMPORTANT]
-> **URL Opening Pattern**: The integration uses a post message bridge to handle URL opening:
+
+> [!WARNING]
+> **URL Opening Pattern:**
+> The integration uses a post message bridge to handle URL opening:
 >
 > 1. Sovendus content sends messages via `window.postMessage()` with channel `"sovendus:integration"`
 > 2. JavaScript listener catches these messages and forwards them to native code
 > 3. Native code receives the message and opens the URL in the default browser
 
 ### Dynamic Height Management
->
-> [!IMPORTANT]
-> **Height Adjustment Pattern**: The WebView height must dynamically adjust based on content:
+
+> [!WARNING]
+> **Height Adjustment Pattern:**
+> The WebView height must dynamically adjust based on content:
 >
 > 1. `ResizeObserver` monitors changes to `document.body.scrollHeight`
 > 2. Height changes are sent to native code via your platform's JavaScript bridge
