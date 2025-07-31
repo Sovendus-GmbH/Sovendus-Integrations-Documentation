@@ -1,6 +1,6 @@
 # Shopify Sovendus Voucher Network & Checkout Benefits Integration Documentation
 
-## This documentation is only for the old Shopify version
+## ⌛ This documentation is only for the old Shopify version
 
 > [!WARNING]
 > The integration only works if you have NOT upgraded your thank you page and order status page to the "Checkout extensibility" version, the [docs for the new version can be found here](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Web-Integration/Shopify-App-(new-Version))
@@ -14,18 +14,18 @@ To check your thank you / order status page version go to "Settings -> Checkout"
 
 ![Old Shopify Checkout Version](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Integrations-Documentation/main/vn-cb/web/shopify-script-old/old-shopify-checkout-version.png)
 
-## Create discount codes in bulk
+## 🏷️ Create discount codes in bulk
 
 If you use the Voucher Network, it's recommended to use a tool to create voucher codes in bulk. \
 You can use for example [Bulk Discounts](https://apps.shopify.com/bulk-discounts) to create multiple discount codes at once.
 
-## Add Sovendus script
+## 📝 Add Sovendus script
 
 1. Copy the [Shopify script from here](https://github.com/Sovendus-GmbH/Sovendus-Integrations-Documentation/blob/main/vn-cb/web/shopify-script-old/shopify.template.html) and replace YOUR_SOURCE_NUMBER and YOUR_MEDIUM_NUMBER with the one we provide you in your integration documentation. Make sure to use the right country code. If you are using sovendus for multiple countries, make sure you define YOUR_SOURCE_NUMBER and YOUR_MEDIUM_NUMBER in the script as well.
 
 2. In your Shopify backend go to: Settings -> Checkout -> Order status page -> Additional scripts - paste the script and save it.
 
-## Additional steps for Switzerland
+## 🇨🇭 Additional steps for Switzerland
 
 For Switzerland it is also required to complete the following steps.
 
