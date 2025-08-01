@@ -1,5 +1,5 @@
 
-# 🌐 Checkout Incentivise Integration Guide
+# Checkout Incentivise Integration Guide
 
 > [!INFO]
 > **Integration Overview**
