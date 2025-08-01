@@ -1,4 +1,4 @@
-# 🔄 Upgrading from Profity to Sovendus Voucher Network
+# Upgrading from Profity to Sovendus Voucher Network
 
 This guide provides a clear, step-by-step process to upgrade your integration from Profity to the Sovendus Voucher Network. Follow the instructions below to ensure a smooth transition.
 
