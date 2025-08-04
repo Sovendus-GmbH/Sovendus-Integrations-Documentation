@@ -1,4 +1,4 @@
-# Events API for Sovendus Voucher Network & Checkout Benefits
+# Events API
 
 > [!INFO]
 > **API Overview**
