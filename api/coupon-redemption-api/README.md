@@ -1,4 +1,4 @@
-# Coupon Redemption API for Sovendus Voucher Network and Checkout Benefits
+# Coupon Redemption API for Voucher Network
 
 ## 📝 Introduction
 
