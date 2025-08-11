@@ -44,15 +44,25 @@ window.addEventListener("message", (event) => {
 
 | Action | Payload | Description |
 |--------|---------|-------------|
-| `close` | `{action: "close", version: "v1"}` | Overlay is closed by user |
-| `collapse` | `{action: "collapse", version: "v1"}` | Overlay is collapsed to floating button |
-| `expand` | `{action: "expand", version: "v1"}` | Overlay is shown in expanded form |
+| `close` | `{action: "close", version: "v1"}` | Overlay is permanently closed by user (cannot be reopened) |
+| `collapse` | `{action: "collapse", version: "v1"}` | Overlay is collapsed to floating button (toggle state) |
+| `expand` | `{action: "expand", version: "v1"}` | Overlay is expanded from collapsed state (toggle state) |
+
+> [!INFO]
+> **Overlay State Behavior**
+>
+> - **Toggle overlays**: Use `collapse`/`expand` events for overlays that can be minimized and restored
+> - **Permanent close**: Use `close` event for overlays that can only be dismissed, not reopened
 
 ### 🔗 Integration Events (sovendus:integration)
 
 | Action | Payload | Description |
 |--------|---------|-------------|
-| `openInNativeBrowser` | `{action: "openInNativeBrowser", url: "example.com/url", version: "v1"}` | External link needs to open in native browser |
+| `openInNativeBrowser` | `{action: "openInNativeBrowser", url: "example.com/url", version: "v1"}` | Triggered when user clicks on any external link within Sovendus applications |
+
+> [!INFO]
+> **External Link Handling**
+> The `openInNativeBrowser` event fires for all external links clicked within Sovendus overlays, allowing you to handle link opening behavior (e.g., opening in native browser for mobile apps).
 
 ---
 
@@ -84,21 +94,26 @@ window.addEventListener("message", (event) => {
 function handleOverlayEvent(payload) {
   switch (payload.action) {
     case "close":
-      console.log("User closed Sovendus overlay");
-      // Track analytics, update UI, etc.
+      console.log("User permanently closed Sovendus overlay");
+      // Track analytics, hide related UI elements, etc.
+      // Note: Overlay cannot be reopened after this event
       break;
     case "collapse":
-      console.log("Sovendus overlay collapsed");
+      console.log("Sovendus overlay collapsed to floating button");
+      // Update UI to show overlay is minimized but still available
       break;
     case "expand":
-      console.log("Sovendus overlay expanded");
+      console.log("Sovendus overlay expanded from collapsed state");
+      // Update UI to show overlay is now fully visible
       break;
   }
 }
 
 function handleIntegrationEvent(payload) {
   if (payload.action === "openInNativeBrowser") {
-    // Handle external link opening
+    console.log("External link clicked:", payload.url);
+    // Handle external link opening (e.g., for mobile apps)
+    // This fires for ALL external links within Sovendus applications
     window.open(payload.url, '_blank');
   }
 }

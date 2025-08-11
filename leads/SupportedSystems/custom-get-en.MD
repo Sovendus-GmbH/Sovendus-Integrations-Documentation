@@ -1,0 +1,78 @@
+# Connect a Custom Newsletter System with GET Request
+
+## 📝 Introduction
+
+To transfer leads/newsletter registrations from customers to your system in an automated and timely manner, Sovendus can call an interface provided by you. The data is transmitted via the URL parameters of an HTTP GET request (also called a "webhook") or an HTTP POST request. The customer data provided can then be further processed by your system as desired.
+
+## 🌐 Example GET Request
+
+An example URL you provide to transfer the leads/newsletter sign-ups could look like this:
+
+`https://yourdomain.com/subscribe?salutation=%consumer_salutation%&gender=%consumer_gender%&firstname=%consumer_firstname%&lastname=%consumer_lastname%&email=%consumer_email%&sov_id=%newsletter_history_id%&complianceip=%compliance_ip%&compliancetext=%compliance_text%&compliancetimestamp=%compliance_timestamp%`
+
+> [!ERROR]
+> To ensure a secure connection, the HTTPS protocol (with a valid certificate) must be used to transfer the data!
+
+### 📋 Transmission Parameters
+
+> [!WARNING]
+> Parameters can have different names e.g., firstname could be first_name or any other name.
+
+The URL you provide should contain the following placeholders to allow complete transfer of the customer data:
+
+| Placeholder              | Value                                                                           |
+| ------------------------ | ------------------------------------------------------------------------------- |
+| %consumer_salutation%    | Salutation of the customer                                                      |
+| %consumer_gender%        | Gender of the customer                                                          |
+| %consumer_firstname%     | First name of the customer                                                      |
+| %consumer_lastname%      | Last name of the customer                                                       |
+| %consumer_email%         | E-mail of the customer                                                          |
+| %newsletter_history_id%  | Sovendus ID of the record                                                       |
+| %compliance_ip%          | Customer IP at the time of opt-in consent                                       |
+| %compliance_text%        | Opt-in consent text at the time of confirmation - transmitted base64 encoded    |
+| %compliance_timestamp%   | Time of confirmation of the opt-in consent text - transmitted base64 encoded    |
+
+To ensure your data protection interests, the following transmission parameters %newsletter_history_id%, %compliance_ip%, %compliance_text%, and %compliance_timestamp% must be processed in your system.
+
+> [!ERROR]
+> The %compliance_text% and the %compliance_timestamp% are base64 encoded to avoid transmission errors!
+
+### Example Request from Our System
+
+An example request from our system could look like this with the following registration data:
+
+#### Registration Data:
+
+- First name: Mustermann
+- Last name: Müller
+- E-mail: mustermann.mueller@mail.de
+- Sovendus ID: 21544842251
+- IP of consent: 127.0.0.1
+- Consent text: Ich willige hiermit ein, dass mich WERBEPARTNER über Neuigkeiten und Angebote (zu [z.B. Damenmode]) per E-Mail informieren darf. Meine Einwilligung kann ich jederzeit bei WERBEPARTNER widerrufen
+- Consent timestamp: 01.03.2018 11:58
+
+#### Example URL:
+
+`https://yourdomain.com/subscribe?salutation=Herr&firstname=Mustermann&lastname=M%C3%BCller&email=mustermann.mueller%40mail.de&sov_id=21544842251&complianceip=127.0.0.1&compliancetext=SWNoIHdpbGxpZ2UgaGllcm1pdCBlaW4sIGRhc3MgbWljaCBXRVJCRVBBUlRORVIgw7xiZXIgTmV1aWdrZWl0ZW4gdW5kIEFuZ2Vib3RlICh6dSBbei5CLiBEYW1lbm1vZGVdKSBwZXIgRS1NYWlsIGluZm9ybWllcmVuIGRhcmYuIE1laW5lIEVpbndpbGxpZ3VuZyBrYW5uIGljaCBqZWRlcnplaXQgYmVpIFdFUkJFUEFSVE5FUiB3aWRlcnJ1ZmVu&compliancetimestamp=MDEuMDMuMjAxOCAxMTo1OA%3D%3D`
+
+All transmitted parameters are URL encoded, and the character set used is UTF-8.
+
+### 🔒 Authentication
+
+To prevent unauthorized access to your interface, access to the URL should be secured via HTTP authentication (Basic Authentication).
+
+#### Example URL with authentication:
+
+`https://username:password@yourdomain.com/subscribe?...`
+
+> [!ERROR]
+> Username and password for authentication should be submitted to Sovendus in a secure way.
+
+### 🔄 Return Values
+
+For Sovendus to determine successful transmission, your interface should return as precise an HTTP status code as possible in the range 200-299.
+
+For unsuccessful transmission, your interface should return as precise an HTTP status code as possible from the error ranges 400-499 or 500-599.
+
+In case of errors, Sovendus will attempt to submit requests to the interface up to 10 times, waiting 10 minutes between each request. Nevertheless, you should ensure that the interface is permanently available.
+
