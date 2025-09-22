@@ -38,9 +38,9 @@ window.addEventListener("message", (event) => {
 
 ---
 
-## 📊 Supported Events
+## Supported Events
 
-### 🎯 Overlay Events (sovendus:overlay)
+### Overlay Events (sovendus:overlay)
 
 | Action | Payload | Description | Version  |
 |--------|---------|-------------|----------|
@@ -54,7 +54,7 @@ window.addEventListener("message", (event) => {
 > - **Toggle overlays**: Use `collapse`/`expand` events for overlays that can be minimized and restored
 > - **Permanent close**: Use `close` event for overlays that can only be dismissed, not reopened
 
-### 🔗 Integration Events (sovendus:integration) since v1
+### Integration Events (sovendus:integration) since v1
 
 | Action | Payload | Description | Version |
 |--------|---------|-------------|---------|
@@ -65,7 +65,7 @@ window.addEventListener("message", (event) => {
 > The `openInNativeBrowser` event fires for all external links clicked within Sovendus overlays, allowing you to handle link opening behavior (e.g., opening in native browser for mobile apps).
 
 
-### 🎯 Instance Events (sovendus:instance)
+### Instance Events (sovendus:instance)
 
 | Action   | Payload                                                               | Description                                                                             | Version |
 |----------|-----------------------------------------------------------------------|-----------------------------------------------------------------------------------------|---------|
