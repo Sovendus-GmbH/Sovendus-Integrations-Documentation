@@ -75,7 +75,7 @@ window.addEventListener("message", (event) => {
 > [!INFO]
 > **Instance loaded Behavior**
 > 
-> - **Type**: Indicates the type of Sovendus instance (e.g., "list", "one_click", "banner, "sticky_banner", "collapsable_overlay", "anchor")
+> - **Type**: Indicates the type of Sovendus instance (e.g., "list", "one_click", "banner, "sticky_banner", "overlay", "anchor")
 > - **Status**: Indicates the implementation status ("embedded_to_dom" or "complete"). "complete" means the instance is fully loaded (including images), and is ready for user interaction. The "embedded_to_dom" status means the instance is in the DOM but not fully loaded yet. 
 > - **Error Handling**: The `error` event provides a message describing the issue encountered during integration. In case of an error event, in almost all cases no `loaded:complete` event will be fired for the same instance.
 
