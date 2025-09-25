@@ -38,15 +38,15 @@ window.addEventListener("message", (event) => {
 
 ---
 
-## 📊 Supported Events
+## Supported Events
 
-### 🎯 Overlay Events (sovendus:overlay)
+### Overlay Events (sovendus:overlay)
 
-| Action | Payload | Description |
-|--------|---------|-------------|
-| `close` | `{action: "close", version: "v1"}` | Overlay is permanently closed by user (cannot be reopened) |
-| `collapse` | `{action: "collapse", version: "v1"}` | Overlay is collapsed to floating button (toggle state) |
-| `expand` | `{action: "expand", version: "v1"}` | Overlay is expanded from collapsed state (toggle state) |
+| Action | Payload | Description | Version  |
+|--------|---------|-------------|----------|
+| `close` | `{action: "close", version: "v1"}` | Overlay is permanently closed by user (cannot be reopened) | since v1 |
+| `collapse` | `{action: "collapse", version: "v1"}` | Overlay is collapsed to floating button (toggle state) | since v1 |
+| `expand` | `{action: "expand", version: "v1"}` | Overlay is expanded from collapsed state (toggle state) | since v1 |
 
 > [!INFO]
 > **Overlay State Behavior**
@@ -54,15 +54,30 @@ window.addEventListener("message", (event) => {
 > - **Toggle overlays**: Use `collapse`/`expand` events for overlays that can be minimized and restored
 > - **Permanent close**: Use `close` event for overlays that can only be dismissed, not reopened
 
-### 🔗 Integration Events (sovendus:integration)
+### Integration Events (sovendus:integration) since v1
 
-| Action | Payload | Description |
-|--------|---------|-------------|
-| `openInNativeBrowser` | `{action: "openInNativeBrowser", url: "example.com/url", version: "v1"}` | Triggered when user clicks on any external link within Sovendus applications |
+| Action | Payload | Description | Version |
+|--------|---------|-------------|---------|
+| `openInNativeBrowser` | `{action: "openInNativeBrowser", url: "example.com/url", version: "v1"}` | Triggered when user clicks on any external link within Sovendus applications | since v1 |
 
 > [!INFO]
 > **External Link Handling**
 > The `openInNativeBrowser` event fires for all external links clicked within Sovendus overlays, allowing you to handle link opening behavior (e.g., opening in native browser for mobile apps).
+
+
+### Instance Events (sovendus:instance)
+
+| Action   | Payload                                                               | Description                                                                             | Version |
+|----------|-----------------------------------------------------------------------|-----------------------------------------------------------------------------------------|---------|
+| `loaded` | `{action: "loaded", type: "list",  status: "complete" version: "v2"}` | Fired per instance, providing information about the type and the implementation status. | since v2 |
+| `error`  | `{action: "error", message: "errror description", version: "v2"}`     | Fired in case an error occurred during the integration process.                         | since v2 |
+
+> [!INFO]
+> **Instance loaded Behavior**
+> 
+> - **Type**: Indicates the type of Sovendus instance (e.g., "list", "one_click", "banner, "sticky_banner", "overlay", "anchor")
+> - **Status**: Indicates the implementation status ("embedded_to_dom" or "complete"). "complete" means the instance is fully loaded (including images), and is ready for user interaction. The "embedded_to_dom" status means the instance is in the DOM but not fully loaded yet. 
+> - **Error Handling**: The `error` event provides a message describing the issue encountered during integration. In case of an error event, in almost all cases no `loaded:complete` event will be fired for the same instance.
 
 ---
 
