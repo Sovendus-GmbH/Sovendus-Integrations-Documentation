@@ -64,7 +64,7 @@ Add this HTML markup to your order success/thank you page where you want the Sov
 
 > [!WARNING]
 > **Container Placement**
-> The position of this container doesn't affect the placement of the Sovendus sticky banner and overlay vartiants if you're using one.
+> The position of this container doesn't affect the placement of the Sovendus sticky banner and overlay variants if you're using one.
 
 > [!INFO]
 > **When is the container required?**
