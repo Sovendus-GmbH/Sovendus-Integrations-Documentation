@@ -1,98 +1,79 @@
-# Sovendus Android SDK Integration Guide
+# Sovendus Android SDK
 
-## Quick Start Checklist
+[![GitLab CI](https://img.shields.io/gitlab/pipeline-status/sdk/sovendus-sdk-android?branch=main&gitlab_url=https%3A%2F%2Fgitlab.sovendus.com)](https://gitlab.sovendus.com/sdk/sovendus-sdk-android/-/pipelines)
+[![Maven Central](https://img.shields.io/maven-central/v/com.sovendus/android-sdk)](https://central.sonatype.com/artifact/com.sovendus/android-sdk)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
-Get integrated in **5 minutes:**
+Android SDK for Sovendus vouchers and product recommendations.
 
-1. ✅ Add dependency to `build.gradle.kts`
-2. ✅ Get credentials from Sovendus
-3. ✅ Add one component to your app
-4. ✅ Test with sandbox mode
-5. ✅ Go live with production credentials
+## Features
 
----
+- **Simple Integration** - One component that automatically renders content from API
+- **Auto-Initialization** - No setup required
+- **Personalization** - Consumer and order data support
+- **Material 3** - Automatic theming
 
-## Step 1: Installation
-
-Add the SDK to your `build.gradle.kts`:
+## Installation
 
 ```kotlin
 dependencies {
-    implementation("com.sovendus:android-sdk:1.0.5")
+    implementation("com.sovendus:android-sdk:1.1.0")
 }
 ```
 
-**Requirements:** Android API 26+, Kotlin 2.1.0+, Jetpack Compose (for Compose integration)
+## Quick Start
 
----
-
-## Step 2: Get Credentials
-
-Contact Sovendus to receive:
-- **Traffic Source Number** (e.g., 123)
-- **Traffic Medium Number** (e.g., 456)
-
----
-
-## Step 3: Add the Component
-
-### Compose (Recommended)
-
+### Inline Display
 ```kotlin
-@Composable
-fun YourScreen() {
-    SovendusSDK.VoucherBenefits(
-        config = SovendusConfig.Builder()
-            .trafficSourceNumber(123)
-            .trafficMediumNumber(456)
-            .build()
-    )
-}
-```
-
-### XML (Traditional)
-
-**Layout file:**
-```xml
-<com.sovendus.sdk.ui.xml.SovendusVoucherBenefitsView
-    android:id="@+id/sovendus_benefits"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
-```
-
-**Activity/Fragment:**
-```kotlin
-findViewById<SovendusVoucherBenefitsView>(R.id.sovendus_benefits).apply {
-    config = SovendusConfig.Builder()
-        .trafficSourceNumber(123)
-        .trafficMediumNumber(456)
-        .build()
-}
-```
-
-**That's it!** The component automatically displays products and/or vouchers based on what the API
-returns.
-
----
-
-## Step 4: Test Your Integration
-
-Use sandbox mode to test without production credentials:
-
-```kotlin
-val testConfig = SovendusConfig.Builder()
-    .sandbox(true)  // Uses test data
+// 1. Create configuration
+val config = SovendusConfig.Builder()
+    .trafficSourceNumber(123)
+    .trafficMediumNumber(456)
     .build()
 
-SovendusSDK.VoucherBenefits(config = testConfig)
+// 2. Add component (Compose)
+SovendusSDK.VoucherBenefits(config = config)
 ```
 
----
+That's it! The component automatically displays whatever content the API returns.
 
-## Step 5: Add Personalization (Optional)
+### Multiple Placements
 
-Provide customer data for personalized recommendations:
+Use `VoucherBenefits` for all placements—inline, dialogs, modals, etc. Each placement uses a different `trafficMediumNumber` assigned by Sovendus:
 
+```kotlin
+// Placement 1: Inline on checkout success
+SovendusSDK.VoucherBenefits(
+    config = SovendusConfig.Builder()
+        .trafficSourceNumber(123)
+        .trafficMediumNumber(456)  // Inline placement
+        .build()
+)
+
+// Placement 2: Modal/dialog (different TMN)
+SovendusSDK.VoucherBenefits(
+    config = SovendusConfig.Builder()
+        .trafficSourceNumber(123)
+        .trafficMediumNumber(789)  // Modal placement
+        .build(),
+    onStateChanged = { if (it is LoadingState.Success) showDialog = true }
+)
+```
+
+Sovendus configures what content/layout each medium number returns via the backend.
+
+## Configuration
+
+### Basic
+
+```kotlin
+val config = SovendusConfig.Builder()
+    .trafficSourceNumber(123)      // Required
+    .trafficMediumNumber(456)      // Required
+    .build()
+```
+
+### With Personalization
 ```kotlin
 val config = SovendusConfig.Builder()
     .trafficSourceNumber(123)
@@ -110,320 +91,73 @@ val config = SovendusConfig.Builder()
     .build()
 ```
 
-**Available Fields:**
-
-**Consumer Data:** firstName, lastName, email, zipCode, city, country, phone, dateOfBirth,
-yearOfBirth
-**Order Data:** orderId, orderValue, orderCurrency, usedCouponCode, sessionId
-
-All fields are optional. Email is automatically hashed before transmission.
-
----
-
-## Step 6: Handle Loading States (Optional)
-
-### Custom Loading
-```kotlin
-SovendusSDK.VoucherBenefits(
-    config = config,
-    onStateChanged = { state ->
-        when (state) {
-            is LoadingState.Loading -> showYourLoader()
-            is LoadingState.Success -> hideYourLoader()
-            is LoadingState.Error -> showError(state.message)
-        }
-    }
-)
-```
-
----
-
-## Step 7: Dialog/Overlay Display (Optional)
-
-Use `BannerView` to show a voucher banner in a dialog or overlay:
-
-```kotlin
-@Composable
-fun BannerDialog() {
-    var bannerRequested by remember { mutableStateOf(false) }
-    var bannerReady by remember { mutableStateOf(false) }
-
-    // Button to trigger banner
-    Button(onClick = { bannerRequested = true }) {
-        Text("Show Banner")
-    }
-
-    // Show dialog immediately with loading spinner
-    if (bannerRequested) {
-        val dismissBanner = {
-            bannerRequested = false
-            bannerReady = false
-        }
-
-        Dialog(
-            onDismissRequest = dismissBanner,
-            properties = DialogProperties(usePlatformDefaultWidth = false)
-        ) {
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                // Show loading spinner while data is loading
-                if (!bannerReady) {
-                    CircularProgressIndicator()
-                }
-
-                // BannerView with custom close button
-                Box(modifier = Modifier.padding(horizontal = 24.dp)) {
-                    SovendusSDK.BannerView(
-                        config = config,
-                        onStateChanged = { state ->
-                            when (state) {
-                                is LoadingState.Success -> bannerReady = true
-                                is LoadingState.Error -> dismissBanner()
-                                else -> {}
-                            }
-                        }
-                    )
-
-                    // Custom close button at top-right of banner
-                    if (bannerReady) {
-                        IconButton(
-                            onClick = dismissBanner,
-                            modifier = Modifier.align(Alignment.TopEnd)
-                        ) {
-                            Icon(Icons.Default.Close, contentDescription = "Close")
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-```
-
-**Key points:**
-- Dialog opens immediately with a loading spinner (smooth animation)
-- Banner content replaces spinner when data arrives
-- Implement close button, dimming, and dismiss logic externally
-
----
-
-## Step 9: Customize Link Behavior (Optional)
-
-By default, links open in the system browser. To customize:
+### With Custom Link Handler
 
 ```kotlin
 val config = SovendusConfig.Builder()
     .trafficSourceNumber(123)
     .trafficMediumNumber(456)
     .onLinkOpened { url ->
-        // Custom logic (e.g., Chrome Custom Tabs, in-app browser)
         openInCustomTabs(url)
-        true  // Return true if handled
+        true
     }
     .build()
 ```
 
----
-
-## Step 10: Custom Fonts (Optional)
-
-By default, the SDK uses the system font (Roboto on Android). You can customize the font to match your app's branding by providing a `FontFamily`.
-
-### Bundling Fonts in Your App
-
-1. **Add font files** to `res/font/` directory (TTF or OTF format):
-   ```
-   app/src/main/res/font/
-   ├── brand_regular.ttf
-   └── brand_bold.ttf
-   ```
-
-2. **Create a FontFamily** with the font weights you need:
-   ```kotlin
-   import androidx.compose.ui.text.font.Font
-   import androidx.compose.ui.text.font.FontFamily
-   import androidx.compose.ui.text.font.FontWeight
-
-   val BrandFontFamily = FontFamily(
-       Font(R.font.brand_regular, FontWeight.Normal),
-       Font(R.font.brand_bold, FontWeight.Bold)
-   )
-   ```
-
-3. **Pass the FontFamily** to the SDK config:
-   ```kotlin
-   val config = SovendusConfig.Builder()
-       .trafficSourceNumber(123)
-       .trafficMediumNumber(456)
-       .fontFamily(BrandFontFamily)  // Custom font
-       .build()
-
-   SovendusSDK.VoucherBenefits(config = config)
-   ```
-
-### Using Variable Fonts
-
-For variable fonts (single file with multiple weights):
+## Loading States
 
 ```kotlin
-import androidx.compose.ui.text.ExperimentalTextApi
-import androidx.compose.ui.text.font.FontVariation
-
-@OptIn(ExperimentalTextApi::class)
-val BrandVariableFontFamily = FontFamily(
-    Font(
-        R.font.brand_variable,
-        weight = FontWeight.Normal,
-        variationSettings = FontVariation.Settings(
-            FontVariation.weight(FontWeight.Normal.weight)
-        )
-    ),
-    Font(
-        R.font.brand_variable,
-        weight = FontWeight.Bold,
-        variationSettings = FontVariation.Settings(
-            FontVariation.weight(FontWeight.Bold.weight)
-        )
-    )
+SovendusSDK.VoucherBenefits(
+    config = config,
+    onStateChanged = { state ->
+        when (state) {
+            is LoadingState.Loading -> { /* handle loading */ }
+            is LoadingState.Success -> { /* handle success */ }
+            is LoadingState.Error -> { /* handle error */ }
+        }
+    }
 )
 ```
 
-### Default Behavior
+## XML Integration
 
-- If `fontFamily` is **not provided** (or set to `null`), the SDK uses the system font
-- The custom font applies to **all SDK text elements**: headlines, body text, buttons, and footer links
-- Font weights are preserved (Normal, Medium, SemiBold, Bold) - ensure your FontFamily includes the weights you need
+```xml
+<com.sovendus.sdk.ui.xml.SovendusVoucherBenefitsView
+    android:id="@+id/sovendus_benefits"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+```
 
----
-
-## Going to Production
-
-1. **Replace sandbox mode** with real credentials:
-   ```kotlin
-   val config = SovendusConfig.Builder()
-       .trafficSourceNumber(123)  // Your real traffic source
-       .trafficMediumNumber(456)  // Your real traffic medium
-       .debugMode(BuildConfig.DEBUG)  // Auto-disable in production
-       .consumer(consumerData)
-       .order(orderData)
-       .build()
-   ```
-
-2. **Test thoroughly** in production environment
-3. **Monitor logs** for any issues: `adb logcat | grep SovendusSDK`
-
----
-
-## Complete Examples
-
-### Minimal Integration (Compose)
 ```kotlin
-@Composable
-fun CheckoutSuccessScreen() {
-    SovendusSDK.VoucherBenefits(
-        config = SovendusConfig.Builder()
-            .trafficSourceNumber(123)
-            .trafficMediumNumber(456)
-            .build()
-    )
+findViewById<SovendusVoucherBenefitsView>(R.id.sovendus_benefits).apply {
+    config = myConfig
 }
 ```
 
-### With Personalization (Compose)
+## Testing
+
+Use sandbox mode for testing:
+
 ```kotlin
-@Composable
-fun CheckoutSuccessScreen() {
-    SovendusSDK.VoucherBenefits(
-        config = SovendusConfig.Builder()
-            .trafficSourceNumber(123)
-            .trafficMediumNumber(456)
-            .consumer(ConsumerData(
-                firstName = consumerFirstName,
-                email = consumerEmail
-            ))
-            .order(OrderData(
-                orderId = orderId,
-                orderValue = orderTotal,
-                orderCurrency = "EUR"
-            ))
-            .debugMode(BuildConfig.DEBUG)
-            .build(),
-    )
-}
+val testConfig = SovendusConfig.Builder()
+    .sandbox(true)  // Uses test data
+    .build()
 ```
 
-### XML Integration
-```kotlin
-class CheckoutSuccessActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_checkout_success)
+## Documentation
 
-        findViewById<SovendusVoucherBenefitsView>(R.id.sovendus_benefits).apply {
-            config = SovendusConfig.Builder()
-                .trafficSourceNumber(123)
-                .trafficMediumNumber(456)
-                .consumer(getConsumerData())
-                .order(getOrderData())
-                .debugMode(BuildConfig.DEBUG)
-                .build()
-        }
-    }
-}
-```
+- **[Integration Guide](INTEGRATION_GUIDE.md)** - Detailed integration steps
+- **[Sample App](sample/README.md)** - Working examples
+
+## Requirements
+
+- Android API 24+ (Android 7.0+)
+- Kotlin 2.1.0+
+- Jetpack Compose BOM 2025.08.01+ (for Compose)
+
+## License
+
+Apache License 2.0 - See [LICENSE](LICENSE) file
 
 ---
-
-## Troubleshooting
-
-### Nothing appears on screen
-
-- ✅ Check that you're using correct traffic numbers
-- ✅ Verify network connectivity
-- ✅ Enable debug mode to see errors: `.debugMode(true)`
-
-### Links don't open
-
-- ✅ Ensure device has a browser app installed
-- ✅ Check if custom link handler is working correctly
-
-### No personalized content
-
-- ✅ Verify consumer and order data is provided
-- ✅ Check that email format is valid
-
-### Need more help?
-
-- 📖 Check the [sample app](sample/README.md) for working examples
-- 📧 Contact your Sovendus integration specialist
-
----
-
-## What Gets Displayed?
-
-### VoucherBenefits (Inline)
-The `VoucherBenefits` component automatically shows:
-
-| API Returns   | Display                       |
-|---------------|-------------------------------|
-| Products only | Product recommendation list   |
-| Banner only   | Voucher banner                |
-| Both          | Both with correct positioning |
-| Nothing       | Empty (graceful handling)     |
-
-You don't need to handle these cases - the SDK does it automatically!
-
-### BannerView (Dialog/Overlay)
-The `BannerView` component shows a voucher banner card with:
-- Gift box image/animation
-- Title and description
-- CTA button
-- Legal text
-
-Note: Close button, dimming, and dismiss handling should be implemented externally by integrators.
-
----
-
-**Questions?** Contact your Sovendus integration specialist for support.
+**Need help?** Contact your Sovendus integration specialist
