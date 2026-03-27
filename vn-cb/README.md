@@ -110,9 +110,13 @@ Add this script right after the container div above, or if not possible, at the 
 
 Replace the placeholder values (integration data, order data and customer data) in the script with actual data from your order form, database, etc.
 
-> [!WARNING]
+> [!INFO]
 > **Consent Management**
 > In particular, the `hasConsent` parameter is critical for GDPR and privacy compliance. This parameter allows the user's provided level of consent to easily be transferred to the Sovendus integration. Sovendus will then tailor functionality accordingly, as below
+
+> [!WARNING]
+> **Please Note**
+> This `hasConsent` parameter is only relevant for partners who have signed a Data Processing Agreement with Sovendus - if you are unsure, or have any queries, please reach out to your Customer Success Manager
 
 | Scenario | Value | Description |
 |----------|-------------|---------|
