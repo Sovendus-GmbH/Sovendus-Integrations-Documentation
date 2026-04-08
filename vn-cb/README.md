@@ -116,7 +116,7 @@ Replace the placeholder values (integration data, order data and customer data) 
 
 > [!WARNING]
 > **Please Note**
-> This `hasConsent` parameter is only relevant for partners who have signed a Data Processing Agreement with Sovendus - if you are unsure, or have any queries, please reach out to your Customer Success Manager
+> This `hasConsent` parameter is only relevant for partners who have signed a Data Processing Agreement with Sovendus, and who have been enabled for this functionality - if you are unsure, or have any queries, please reach out to your Customer Success Manager
 
 | Scenario | Value | Description |
 |----------|-------------|---------|
