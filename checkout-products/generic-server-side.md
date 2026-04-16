@@ -176,6 +176,16 @@ POST https://press-order-api.sovendus.com/ext/{PRODUCT_ID}/{TOKEN}/api
    https://yoursite.com/landing?sovReqToken=12345-test-123-12345
    ```
 
+> [!WARNING]
+> ** Note **
+> The API requires a certain format for test tokens. If this format is not met, you may receive a '422 - Unprocessable Content' - "Invalid API parameters" error message. Please test using the following tokens (or very similar):
+>
+> 1. 11111-test-111-11111
+> 2. fffff-test-fff-fffff
+> 3. 12345-test-123-12345
+> 4. 1a2b3-test-1a2-1a2b3
+
+
 2. **Check token storage** in your server logs or cache
 
 3. **Complete test order** and verify API call in logs:
