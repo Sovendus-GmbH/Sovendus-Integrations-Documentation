@@ -185,7 +185,6 @@ POST https://press-order-api.sovendus.com/ext/{PRODUCT_ID}/{TOKEN}/api
 > 3. 12345-test-123-12345
 > 4. 1a2b3-test-1a2-1a2b3
 
-
 2. **Check token storage** in your server logs or cache
 
 3. **Complete test order** and verify API call in logs:
