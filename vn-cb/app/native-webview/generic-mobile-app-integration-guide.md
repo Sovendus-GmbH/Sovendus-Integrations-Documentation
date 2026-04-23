@@ -54,6 +54,7 @@ Use the following HTML template for the WebView:
       window.sovIframes.push({
        trafficSourceNumber: "$trafficSourceNumber",
        trafficMediumNumber: "$trafficMediumNumber",
+       hasConsent: BOOLEAN_VALUE,
        iframeContainerId: "sovendus-voucher-banner",
        sessionId: "$sessionId",
        orderId: "$orderId",
@@ -87,6 +88,23 @@ Use the following HTML template for the WebView:
 ```
 
 ### 2. Parameter Configuration
+
+Replace the placeholder values (integration data, order data and customer data) in the script with actual data from your order form, database, etc.
+
+> [!INFO]
+> **Consent Management**
+> In particular, the `hasConsent` parameter is critical for GDPR and privacy compliance. This parameter allows the user's provided level of consent to easily be transferred to the Sovendus integration. Sovendus will then tailor functionality accordingly, as below
+
+> [!WARNING]
+> **Please Note**
+> This `hasConsent` parameter is only relevant for partners who have signed a Data Processing Agreement with Sovendus - if you are unsure, or have any queries, please reach out to your Customer Success Manager
+
+| Scenario | Value | Description |
+|----------|-------------|---------|
+| ✔ Consent has been explicitly provided | `hasConsent` = `true` | The Sovendus integration loads successfully with full functionality, such as additional analytics, user recognition and personalisation of offers |
+| ✘ Consent has not been explicitly provided | `hasConsent` = `false` | The Sovendus integration loads successfully, but with minimal usage data (anonymised) |
+
+The exact method you use to determine/pass this value will depend on your particular Consent Management Platform and processes. In any case, please ensure this is passed as a Boolean (`true` or `false`).
 
 > [!INFO]
 > **Parameter Documentation**
