@@ -18,7 +18,7 @@ Add the SDK to your `build.gradle.kts`:
 
 ```kotlin
 dependencies {
-    implementation("com.sovendus:android-sdk:1.1.0")
+    implementation("com.sovendus:android-sdk:1.2.1")
 }
 ```
 
@@ -118,7 +118,7 @@ val config = SovendusConfig.Builder()
 **Available Fields:**
 
 **Consumer Data:** firstName, lastName, email, zipCode, city, country, phone, dateOfBirth,
-yearOfBirth
+yearOfBirth, hasConsent
 **Order Data:** orderId, orderValue, orderCurrency, usedCouponCode, sessionId
 
 All fields are optional. Email is automatically hashed before transmission.
@@ -480,6 +480,7 @@ The SDK supports layout modes controlled by Sovendus backend via `template.layou
 |-----------|-------------------|--------------------------------------------------|
 | 1         | Horizontal Slider | Swipeable pager with page indicators (default)   |
 | 2         | Vertical List     | Two-column cards stacked vertically              |
+| 3         | Carousel          | Stacked card deck with arrow navigation and animated transitions |
 
 **Banner Layouts:**
 
@@ -500,7 +501,7 @@ or any other placement. Each instance with a different `trafficMediumNumber` tri
 independent API call. Sovendus controls per placement:
 
 - **What content** to return (banner only, list only, or both)
-- **Which layout** to use (inline vs overlay banner, horizontal slider vs vertical list)
+- **Which layout** to use (inline vs overlay banner, horizontal slider vs vertical list vs carousel)
 - **Themes and styling** (colors, fonts, border radius)
 
 For modal placements, use `VoucherBenefits` with a dedicated `trafficMediumNumber`.

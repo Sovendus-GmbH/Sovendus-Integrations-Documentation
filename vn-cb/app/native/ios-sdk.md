@@ -202,6 +202,7 @@ Layout modes are determined by the API response - no integrator action required.
 |-----------|-------------------|--------------------------------------------------|
 | 1         | Horizontal Slider | Swipeable pager with page indicators (default)   |
 | 2         | Vertical List     | Cards stacked vertically                         |
+| 3         | Carousel          | Stacked card deck with arrow navigation and animated transitions |
 
 **Banner Layouts** (`banner.template.layoutId`):
 
@@ -255,7 +256,8 @@ let consumerData = ConsumerData(
     email: "customer@example.com",
     country: "DE",
     zipCode: "10115",
-    city: "Berlin"
+    city: "Berlin",
+    hasConsent: true // Customer's privacy consent
 )
 
 let orderData = OrderData(
@@ -277,6 +279,8 @@ let config = SovendusConfig(
 ```
 
 **Privacy:** Email is automatically hashed before sending. No plain text personal data leaves your app.
+
+**Consent tracking:** Pass `hasConsent: true` when the customer has granted privacy consent, or `false` when they have explicitly declined. Leave it unset (`nil`) when consent state is unknown or not collected. The value is forwarded as-is in the API request.
 
 ---
 
