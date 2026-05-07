@@ -18,6 +18,17 @@ Check if you're using the new checkout: **Settings → Checkout**
 > **Voucher Network Users**
 > Consider using [Bulk Discounts](https://apps.shopify.com/bulk-discounts) to create multiple discount codes efficiently.
 
+### Consent
+
+> [!INFO]
+> **Consent Management**
+> The Sovendus Shopify app can now utilise Shopify's default cookie consent functionality, ensuring data is only processed in the correct circumstances
+
+> [!WARNING]
+> **Please Note**
+> This consent-based functionality is only relevant for partners who have signed a Data Processing Agreement with Sovendus, and who have been enabled for this functionality - if you are unsure, or have any queries,
+please reach out to your Customer Success Manager
+
 ---
 
 ## 🚀 Setup Process
