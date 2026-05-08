@@ -22,7 +22,7 @@ Check if you're using the new checkout: **Settings → Checkout**
 
 > [!INFO]
 > **Consent Management**
-> The Sovendus Shopify app can now utilise Shopify's default cookie consent functionality, ensuring data is only processed in the correct circumstances
+> The Sovendus Shopify app can now utilise Shopify's default consent functionality, ensuring data is only processed in the correct circumstances
 
 > [!WARNING]
 > **Please Note**
