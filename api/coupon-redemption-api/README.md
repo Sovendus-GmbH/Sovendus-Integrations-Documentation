@@ -59,6 +59,7 @@ POST request to `https://coupon-api.sovendus.com/redeem/{trafficSourceNumber}`
 | order_currency           | Currency of the order, ISO code (e.g., EUR, GBP)                                                                                  | Required for percentage-based billing, otherwise optional                              |
 | order_id                 | Order number                                                                                                                      | Required in case the voucher code is not unique for each customer, otherwise optional  |
 | coupon_code              | Voucher code used during the order                                                                                                | Required                                                                               |
+| has_consent              | Indicates whether the customer has granted consent for processing their personal data                                             | Optional                                                                               |
 
 ### Response
 
@@ -86,7 +87,8 @@ POST request to `https://coupon-api.sovendus.com/redeem/{trafficSourceNumber}`
   "order_value": "12.34",
   "order_currency": "EUR",
   "order_id": "123abc123",
-  "coupon_code": "SKDXXR4324"
+  "coupon_code": "SKDXXR4324",
+  "has_consent": true
 }
 ```
 
