@@ -6,7 +6,7 @@
 
 > [!WARNING]
 > **New Shopify Checkout Required**
-> This app only works with Shopify's new "Checkout Extensibility" version. [View docs for the old version](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Web-Integration/Shopify-Integration-(old-version))
+> This app only works with Shopify's new "Checkout Extensibility" version
 
 Check if you're using the new checkout: **Settings → Checkout**
 
@@ -68,10 +68,6 @@ please reach out to your Customer Success Manager
 > 3. Click on "Add App block" on the bottom left, then on "Sovendus App" and then "Save"
 > 4. Ensure the banners position above eventual other widgets
     ![Shopify App Positioning](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Integrations-Documentation/main/vn-cb/web/shopify-app-docs/thank-you-position.png)
-> 5. Click on "Thank you" in the top middle and then on "Order status"
-> 6. Click on "Add App block" on the bottom left, then on "Sovendus App" and then "Save"
-> 7. Ensure the banners position above eventual other widgets
-    ![Shopify App Positioning](https://raw.githubusercontent.com/Sovendus-GmbH/Sovendus-Integrations-Documentation/main/vn-cb/web/shopify-app-docs/order-status-position.png)
 
 #### Checkout Products
 
