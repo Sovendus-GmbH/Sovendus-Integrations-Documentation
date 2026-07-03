@@ -97,11 +97,11 @@ Add this script right after the container div above, or if not possible, at the 
   };
 
   // Append Sovendus script to the head
-  var script = document.createElement("script");
-  script.type = "text/javascript";
-  script.async = true;
-  script.src = "https://api.sovendus.com/sovabo/common/js/flexibleIframe.js";
-  document.head.appendChild(script);
+  var sovscript = document.createElement("script");
+  sovscript.type = "text/javascript";
+  sovscript.async = true;
+  sovscript.src = "https://api.sovendus.com/sovabo/common/js/flexibleIframe.js";
+  document.head.appendChild(sovscript);
 </script>
 <!--sovendus code end -->
 ```
