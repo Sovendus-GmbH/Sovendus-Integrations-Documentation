@@ -78,7 +78,7 @@ Add this script right after the container div above, or if not possible, at the 
     orderCurrency: "ORDER_CURRENCY",
     usedCouponCode: "COUPON_CODE",
     iframeContainerId: "sovendus-container-1",
-    integrationType: "genericScript-1.5.0-hasConsent",
+    integrationType: "genericScript-1.5.1-hasConsent",
   });
 
   window.sovConsumer = {
