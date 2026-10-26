@@ -122,6 +122,13 @@ Replace the placeholder values (integration data, order data and customer data) 
 The exact method you use to determine/pass this value will depend on your particular Consent Management Platform and processes. In any case, please ensure this is passed as a Boolean (`true` or `false`).
 
 > [!INFO]
+> **Multiple Coupon Codes**
+> If more than one voucher code was used in an order, pass all of them in the `usedCouponCode` parameter as a single comma-separated string, e.g. `usedCouponCode: "PROMO10,SOV7KD93,FREESHIP"`.
+
+> [!WARNING]
+> Don't add spaces after the commas: use `"A,B"`, not `"A, B"`. Otherwise we can't match the code that follows the space.
+
+> [!INFO]
 > **Parameter Documentation**
 > For detailed information on all parameters, examples, and requirements, visit: [Parameter Documentation](https://developer-hub.sovendus.com/Voucher-Network-Checkout-Benefits/Parameter)
 
