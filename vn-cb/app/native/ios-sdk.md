@@ -200,7 +200,7 @@ Layout modes are determined by the API response - no integrator action required.
 
 | Layout ID | Style             | Description                                      |
 |-----------|-------------------|--------------------------------------------------|
-| 1         | Horizontal Slider | Swipeable pager with page indicators (default)   |
+| 1         | Horizontal Slider | Swipeable pager with page indicators, offer advantages inline in each card (default) |
 | 2         | Vertical List     | Cards stacked vertically                         |
 | 3         | Carousel          | Stacked card deck with arrow navigation and animated transitions |
 
@@ -215,6 +215,28 @@ Layout modes are determined by the API response - no integrator action required.
 - The component renders **whatever the API returns**: banner only, list only, or both
 - Each `VoucherBenefitsView` instance with a different `SovendusConfig` (unique `trafficMediumNumber`) triggers its own API call
 - Sovendus controls content and layout per placement
+
+### Component Sizing
+
+SDK components report the height they need and grow to fit their content — there is no fixed card height. That height depends on the layout the API returns, how long the product copy is, and the reader's system text size, so it is not something you can predict at integration time.
+
+Give the component room to grow rather than pinning it:
+
+```swift
+// Good — the component reports the height it needs
+ScrollView {
+    VStack {
+        VoucherBenefitsView(config: config)
+        // your own content
+    }
+}
+
+// Avoid — a hard-coded height clips the component
+VoucherBenefitsView(config: config)
+    .frame(height: 320)
+```
+
+In UIKit, let the hosting controller's view size itself from its SwiftUI content — pin it with Auto Layout constraints (as in the [UIKit example](#uikit) above), not a fixed height constant.
 
 ### Multiple Placements
 
@@ -382,9 +404,20 @@ let config = SovendusConfig(
 
 ## Step 8: Custom Font Configuration (Optional)
 
-**Use your app's custom font** in Sovendus SDK components by providing a `UIFont`:
+**Use your app's custom font** in Sovendus SDK components by providing either a font family name or any registered `UIFont` from the family:
 
 ```swift
+// Option A — pass the family name directly:
+let config = SovendusConfig(
+    trafficSourceNumber: 1234,
+    trafficMediumNumber: 5678,
+    consumerData: consumerData,
+    orderData: orderData,
+    customFontFamily: "Your Custom Font"
+)
+
+// Option B — pass any UIFont from the family (the face/size you choose doesn't matter,
+// only the family is used):
 let config = SovendusConfig(
     trafficSourceNumber: 1234,
     trafficMediumNumber: 5678,
@@ -394,62 +427,63 @@ let config = SovendusConfig(
 )
 ```
 
+Either way, the SDK applies a weight to that family for every text element and SwiftUI resolves the matching registered face. The weight comes from the SDK's per-style defaults (regular, medium, semibold, bold) **or** from the dynamic theme returned by the API, which can request any weight from 100 (Thin) to 900 (Black). SwiftUI can only render a weight that is actually bundled — if the matching face is missing it falls back to the closest registered face, which usually looks worse than a real cut.
+
+> **⚠️ Bundle the full weight range.** Because API-driven theming may request any weight (100–900), you must bundle **all weights of your font family** for weight customization to render correctly. Bundling only Regular and Bold means medium/semibold/etc. requests silently fall back to the nearest available cut.
+
 ### Bundling Custom Fonts in Your App
 
 To use a custom font, you must first add it to your iOS app:
 
-1. **Add the font file** (`.ttf` or `.otf`) to your Xcode project
-2. **Include in target** - Ensure the font is added to your app target's "Copy Bundle Resources" build phase
-3. **Register in Info.plist** - Add the font filename to `UIAppFonts` (Fonts provided by application):
+1. **Add the font files** (`.ttf` or `.otf`) to your Xcode project — include **every weight variant of the family** (Thin, ExtraLight, Light, Regular, Medium, SemiBold, Bold, ExtraBold, Black, plus any italics you need), not just Regular and Bold. This ensures any weight the API theme requests resolves to a real face.
+2. **Include in target** - Ensure each font file is added to your app target's "Copy Bundle Resources" build phase
+3. **Register in Info.plist** - Add every font filename to `UIAppFonts` (Fonts provided by application):
 
 ```xml
 <key>UIAppFonts</key>
 <array>
+    <string>YourCustomFont-Thin.ttf</string>
+    <string>YourCustomFont-ExtraLight.ttf</string>
+    <string>YourCustomFont-Light.ttf</string>
     <string>YourCustomFont-Regular.ttf</string>
+    <string>YourCustomFont-Medium.ttf</string>
+    <string>YourCustomFont-SemiBold.ttf</string>
     <string>YourCustomFont-Bold.ttf</string>
+    <string>YourCustomFont-ExtraBold.ttf</string>
+    <string>YourCustomFont-Black.ttf</string>
 </array>
 ```
 
-### Creating the UIFont
+> **Tip:** A variable font (a single `.ttf` exposing the full weight axis, like Inter) covers the whole range with one file and is the simplest way to guarantee every weight is available.
+
+### Finding the Family Name
+
+The string passed to `customFontFamily` is the font's **family name** (e.g. `"Noto Sans"`, `"Open Sans"`, `"Poppins"`), not a PostScript face name. You can find it by:
+- Opening the font file in Font Book and checking "Family" in the info panel
+- Printing the registered families at runtime: `UIFont.familyNames.forEach { print($0) }`
+- Reading it from any registered face: `UIFont(name: "YourCustomFont-Regular", size: 14)?.familyName`
+
+### Example
 
 ```swift
-// Create a custom font with the PostScript name
-let customFont = UIFont(name: "YourCustomFont-Regular", size: 14)
-
-// You can also use font descriptors for more control
-let descriptor = UIFontDescriptor(name: "YourCustomFont", size: 14)
-let customFont = UIFont(descriptor: descriptor, size: 14)
-```
-
-**Finding the font name:** The font name used in `UIFont(name:size:)` is the PostScript name, which may differ from the filename. You can find it by:
-- Opening the font file in Font Book and checking "PostScript name" in the info panel
-- Printing all available fonts: `UIFont.familyNames.forEach { print(UIFont.fontNames(forFamilyName: $0)) }`
-
-### Example with Multiple Font Weights
-
-```swift
-// Define font helpers
-extension UIFont {
-    static var appFontRegular: UIFont? {
-        UIFont(name: "Poppins-Regular", size: 14)
-    }
-
-    static var appFontBold: UIFont? {
-        UIFont(name: "Poppins-Bold", size: 14)
-    }
-}
-
-// Use in config
 let config = SovendusConfig(
     trafficSourceNumber: 1234,
     trafficMediumNumber: 5678,
     consumerData: consumerData,
     orderData: orderData,
-    customFont: .appFontRegular
+    customFontFamily: "Poppins"
 )
 ```
 
-**Default Behavior:** If `customFont` is not provided or is `nil`, the SDK uses the system font.
+With the full range of Poppins faces (`Poppins-Thin.ttf` … `Poppins-Black.ttf`) registered in `UIAppFonts`, body text renders with the regular face, badges with medium, headlines with semibold, and buttons with bold automatically — and any weight an API theme requests (100–900) resolves to its real cut. If you register only Regular and Bold, those mid-range weights fall back to the nearest available face.
+
+**Default Behavior:** If neither `customFontFamily` nor `customFont` is provided (or both are `nil`), the SDK uses the system font.
+
+### System Text Size
+
+Every size the SDK renders — its own defaults and any `fontSize` an API theme provides — is scaled against the reader's system text size (Settings → Accessibility → Display & Text Size → Larger Text), for the system font and for a bundled custom family alike. SDK content therefore grows and shrinks alongside the rest of your app; you do not need to configure anything for this.
+
+An enlarged text size makes a card taller rather than truncating it, so the component must be free to grow — see [Component Sizing](#component-sizing).
 
 ---
 
@@ -594,3 +628,126 @@ class CheckoutSuccessViewController: UIViewController {
 **Ready to launch?** You now have everything needed to integrate Sovendus benefits into your iOS app!
 
 **Need help?** Contact your Sovendus integration specialist for support.
+
+---
+
+## Changelog
+
+### 1.5.0 (2026-08-25)
+
+**Changed**
+- Slider layout shows offer advantages inline in each card; the info button and its overlay were removed. Applied automatically for placements using the slider layout.
+- Product titles are capped at two lines and offer advantages at three, consistently across all list layouts.
+- The slider savings badge sits above the product title.
+- Components size themselves to their content. Do not pin `VoucherBenefitsView` to a fixed height, or it will clip at larger text sizes (see Component Sizing).
+
+**Fixed**
+- Text scales with the system text size (Larger Text accessibility setting), for the system font and custom font families alike.
+- Slider and carousel cards grow to fit their content instead of being clipped to a fixed height.
+- Product titles and offer advantages follow their own theme text styles.
+- The banner no longer crashes when its Lottie or SVG artwork fails to download.
+
+---
+
+### 1.4.0 (2026-06-24)
+
+**New**
+- Font size, weight and line height applied automatically from the Sovendus theme configuration for your placement. Bundle all weights of your custom font family and register them in `UIAppFonts` so every requested weight renders (see Custom Font Configuration).
+
+---
+
+### 1.3.1 (2026-05-27)
+
+**Fixed**
+- CTA button distorted when the theme provided a corner radius larger than half the button height.
+
+---
+
+### 1.3.0 (2026-05-06)
+
+**New**
+- `customFontFamily: String?` on `SovendusConfig` to set a custom font by family name (for example `"Poppins"`). Weights are resolved from the family's registered faces, so bundle at least Regular, Medium and Bold.
+
+**Changed**
+- `SovendusConfig.customFont` is no longer a stored property. Passing `customFont: UIFont` still compiles through a convenience initializer, and only the family name is used. Code that reads `config.customFont` must switch to `config.customFontFamily`.
+
+**Fixed**
+- Font weight not applied when using a custom font family.
+- Multiline banner titles are center-aligned.
+
+---
+
+### 1.2.0 (2026-04-27)
+
+**New**
+- `hasConsent: Bool?` on `ConsumerData` for forwarding the customer's privacy consent state. Leave unset when consent is unknown.
+- Carousel benefits layout, automatically rendered when configured by Sovendus for your placement.
+- Card theming for product list cards, applied automatically based on backend theme configuration.
+
+**Fixed**
+- Banner not shown when no banner position was configured.
+- Image alignment, carousel scale effect and savings badge paddings in the benefits list.
+
+---
+
+### 1.1.1 (2026-03-17)
+
+**Fixed**
+- SVG banner not rendering on iOS 18 and earlier.
+- Extra padding removed from `VoucherBenefitsView`.
+
+---
+
+### 1.1.0 (2026-03-12)
+
+**New**
+- Vertical list layout for benefits, automatically rendered when configured by Sovendus for your placement.
+- Inline and card banner layouts, automatically rendered when configured by Sovendus for your placement.
+- Gradient backgrounds for containers, product boxes, buttons, savings badges and banners, applied automatically based on backend theme configuration.
+- Multiple placements: each `VoucherBenefitsView` instance with a unique `trafficMediumNumber` triggers its own API call, so Sovendus can configure content and layout per placement.
+- Custom font support via the optional `customFont` parameter on `SovendusConfig`. Pass any `UIFont` to apply your app's typography. Falls back to the system font when omitted.
+- Dark mode assets for banners and Lottie animations, served automatically when configured.
+
+**Fixed**
+- Savings badge font size in the benefits list.
+
+---
+
+### 1.0.4 (2026-01-05)
+
+**Fixed**
+- Button heights and paddings, button border glitch, font and layout fixes.
+- Banner text color follows its own theme color instead of the additional-text color.
+
+---
+
+### 1.0.3 (2025-11-26)
+
+**New**
+- Markdown formatting in benefits list titles.
+
+**Improved**
+- More comprehensive API error handling.
+
+---
+
+### 1.0.2 (2025-11-25)
+
+**New**
+- Requests are retried once on network errors.
+
+**Fixed**
+- Bullet point indentation and alignment of benefits list advantages.
+
+---
+
+### 1.0.1 (2025-11-20)
+
+**Fixed**
+- Markdown rendering issues, info button close style and spacing between title and advantages.
+
+---
+
+### 1.0.0 (2025-11-20)
+
+Initial public release of the Sovendus SDK for iOS.
