@@ -18,7 +18,7 @@ Add the SDK to your `build.gradle.kts`:
 
 ```kotlin
 dependencies {
-    implementation("com.sovendus:android-sdk:1.2.1")
+    implementation("com.sovendus:android-sdk:1.4.1")
 }
 ```
 
@@ -276,22 +276,34 @@ By default, the SDK uses the system font (Roboto on Android). You can customize 
 
 ### Bundling Fonts in Your App
 
+> **Important:** The SDK supports dynamic font weight customization via the Sovendus API theme.
+> For font weight changes to render correctly, your app must **bundle all font weight files** that may be requested.
+> If only Regular (400) and Bold (700) are bundled but the API requests SemiBold (600), the system will fall back to the closest available weight.
+
+**Recommended weights to bundle:** Light (300), Normal (400), Medium (500), SemiBold (600), Bold (700)
+
 1. **Add font files** to `res/font/` directory (TTF or OTF format):
    ```
    app/src/main/res/font/
-   ├── brand_regular.ttf
-   └── brand_bold.ttf
+   ├── brand_light.ttf       (300)
+   ├── brand_regular.ttf     (400)
+   ├── brand_medium.ttf      (500)
+   ├── brand_semibold.ttf    (600)
+   └── brand_bold.ttf        (700)
    ```
 
-2. **Create a FontFamily** with the font weights you need:
+2. **Create a FontFamily** with all the weights:
    ```kotlin
    import androidx.compose.ui.text.font.Font
    import androidx.compose.ui.text.font.FontFamily
    import androidx.compose.ui.text.font.FontWeight
 
    val BrandFontFamily = FontFamily(
+       Font(R.font.brand_light, FontWeight.Light),
        Font(R.font.brand_regular, FontWeight.Normal),
-       Font(R.font.brand_bold, FontWeight.Bold)
+       Font(R.font.brand_medium, FontWeight.Medium),
+       Font(R.font.brand_semibold, FontWeight.SemiBold),
+       Font(R.font.brand_bold, FontWeight.Bold),
    )
    ```
 
@@ -308,7 +320,7 @@ By default, the SDK uses the system font (Roboto on Android). You can customize 
 
 ### Using Variable Fonts
 
-For variable fonts (single file with multiple weights):
+Variable fonts (single file with multiple weights) are the easiest way to support all weights:
 
 ```kotlin
 import androidx.compose.ui.text.ExperimentalTextApi
@@ -316,20 +328,16 @@ import androidx.compose.ui.text.font.FontVariation
 
 @OptIn(ExperimentalTextApi::class)
 val BrandVariableFontFamily = FontFamily(
-    Font(
-        R.font.brand_variable,
-        weight = FontWeight.Normal,
-        variationSettings = FontVariation.Settings(
-            FontVariation.weight(FontWeight.Normal.weight)
-        )
-    ),
-    Font(
-        R.font.brand_variable,
-        weight = FontWeight.Bold,
-        variationSettings = FontVariation.Settings(
-            FontVariation.weight(FontWeight.Bold.weight)
-        )
-    )
+    Font(R.font.brand_variable, weight = FontWeight.Light,
+        variationSettings = FontVariation.Settings(FontVariation.weight(300))),
+    Font(R.font.brand_variable, weight = FontWeight.Normal,
+        variationSettings = FontVariation.Settings(FontVariation.weight(400))),
+    Font(R.font.brand_variable, weight = FontWeight.Medium,
+        variationSettings = FontVariation.Settings(FontVariation.weight(500))),
+    Font(R.font.brand_variable, weight = FontWeight.SemiBold,
+        variationSettings = FontVariation.Settings(FontVariation.weight(600))),
+    Font(R.font.brand_variable, weight = FontWeight.Bold,
+        variationSettings = FontVariation.Settings(FontVariation.weight(700))),
 )
 ```
 
@@ -337,7 +345,9 @@ val BrandVariableFontFamily = FontFamily(
 
 - If `fontFamily` is **not provided** (or set to `null`), the SDK uses the system font
 - The custom font applies to **all SDK text elements**: headlines, body text, buttons, and footer links
-- Font weights are preserved (Normal, Medium, SemiBold, Bold) - ensure your FontFamily includes the weights you need
+- **Font size, weight, and line height** are controlled by the Sovendus API theme and applied automatically
+- Font weights are dynamic — the API may request any weight from 100–900. Ensure your FontFamily includes all weights you want to support
+- If a requested weight isn't bundled, the system falls back to the closest available weight
 
 ---
 
@@ -429,6 +439,22 @@ class CheckoutSuccessActivity : AppCompatActivity() {
 
 ---
 
+## Upgrading to 1.4.0
+
+Drop-in for most integrations — the Layout 1 and component sizing changes are API-driven and
+need no code change. Two things to check:
+
+- **`onInfoClick` is deprecated** on `StandaloneComposables.VoucherBenefits` and
+  `StandaloneComposables.BenefitsList`. The info icon it belonged to was removed from
+  Layout 1, so the callback is never invoked. A no-op overload is kept, so existing code
+  still compiles with a deprecation warning — drop the argument and use the overload
+  without it
+- **Verify your surrounding layout doesn't impose a fixed height** on the component. Cards
+  now grow to fit their content, so a fixed-height parent can clip them — see
+  [Component Sizing](#component-sizing)
+
+---
+
 ## Troubleshooting
 
 ### Nothing appears on screen
@@ -446,6 +472,18 @@ class CheckoutSuccessActivity : AppCompatActivity() {
 
 - ✅ Verify consumer and order data is provided
 - ✅ Check that email format is valid
+
+### Cards look cut off, clipped, or overlap other views
+
+Since 1.4.0 cards grow to fit their content instead of using a fixed height, so a container
+that constrains them will clip the extra height:
+
+- ✅ Give the component an unbounded height — `wrap_content` in XML, no `Modifier.height(...)`
+  in Compose
+- ✅ Check for a fixed-height or clipping parent (fixed-size `Box`, `clipToOutline`, a
+  collapsed `ConstraintLayout` chain)
+- ✅ Test at a large system font scale — that's when cards get tallest
+- 📖 See [Component Sizing](#component-sizing) for the full behavior
 
 ### Need more help?
 
@@ -478,9 +516,17 @@ The SDK supports layout modes controlled by Sovendus backend via `template.layou
 
 | Layout ID | Style             | Description                                      |
 |-----------|-------------------|--------------------------------------------------|
-| 1         | Horizontal Slider | Swipeable pager with page indicators (default)   |
+| 1         | Horizontal Slider | Swipeable pager with page indicators; offer advantages render inline in the card (default) |
 | 2         | Vertical List     | Two-column cards stacked vertically              |
 | 3         | Carousel          | Stacked card deck with arrow navigation and animated transitions |
+
+> **Changed in 1.4.0 — Layout 1 (Horizontal Slider):** the info icon and its slide-up
+> advantages overlay were removed. `offerAdvantages.mobile` now renders directly in the card
+> body, so all three list layouts present advantages the same way. `offerAdvantages.desktop`
+> is not used on Android, so products without `offerAdvantages.mobile` render without
+> advantage text. This is API-driven and requires no integrator action — the only source-level
+> impact is that `onInfoClick` is deprecated and never invoked (see
+> [Upgrading to 1.4.0](#upgrading-to-140)).
 
 **Banner Layouts:**
 
@@ -493,6 +539,48 @@ The SDK supports layout modes controlled by Sovendus backend via `template.layou
 - The layout is **determined by the API response** (`template.layoutId`)
 - **No integrator action required**—the SDK automatically renders the correct layout
 - Sovendus configures the layout per `trafficMediumNumber` via backend settings
+
+### Component Sizing
+
+**As of 1.4.0, SDK cards and buttons size themselves to their content.** They grow as tall
+as the text inside them needs to be, and their previous fixed heights are kept only as
+*minimums* so sparse content still renders consistently. (Product artwork keeps a fixed
+size — only the text-driven parts of a card grow.)
+
+This matters because the SDK's text can grow in two ways you don't control:
+
+1. **The user's system font scale** (Settings → Display → Font size), up to 2x on recent
+   Android versions
+2. **Font sizes sent in the Sovendus API theme**, which Sovendus can change per placement
+   without an app update
+
+Previously a card kept its hardcoded height and enlarged text was clipped. Now the card
+grows instead, so the content stays readable in full.
+
+**What this means for your layout:**
+
+- ✅ **Give the component a `wrap_content` / unbounded height.** In XML use
+  `android:layout_height="wrap_content"` (as in the snippets above). In Compose, don't
+  constrain it with `Modifier.height(...)` or place it in a fixed-height parent
+- ✅ **Expect the height to change at runtime** — after data loads, and when the user
+  changes their system font size. If you measure or animate around the component, read its
+  height instead of hardcoding one
+- ⚠️ **Avoid clipping parents.** A fixed-height `Box`, a collapsed `ConstraintLayout` chain,
+  or a parent with `clipToOutline` can cut off a card that grew
+
+**Sizing details per component:**
+
+| Component                      | Behavior                                        |
+|--------------------------------|-------------------------------------------------|
+| Slider card (layout 1)         | Grows with its content; 210dp minimum. All cards in one slider share the height of the tallest, measured rather than guessed, so pages stay uniform |
+| Vertical list / carousel cards | Grow with their content                         |
+| CTA buttons (all layouts)      | Grow with their label; 40dp minimum. The label autosizes down only to fit the button's *width* on a single line |
+| Card titles                    | Up to 2 lines, then ellipsized                  |
+| Offer advantages               | Up to 3 lines, then ellipsized                  |
+
+The line caps are a backstop against unusually long copy — within them the card lengthens
+rather than cutting text off mid-line, and anything beyond them is visibly ellipsized rather
+than silently dropped.
 
 ### Multi-Placement Architecture
 
