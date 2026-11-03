@@ -628,3 +628,126 @@ class CheckoutSuccessViewController: UIViewController {
 **Ready to launch?** You now have everything needed to integrate Sovendus benefits into your iOS app!
 
 **Need help?** Contact your Sovendus integration specialist for support.
+
+---
+
+## Changelog
+
+### 1.5.0 (2026-08-25)
+
+**Changed**
+- Slider layout shows offer advantages inline in each card; the info button and its overlay were removed. Applied automatically for placements using the slider layout.
+- Product titles are capped at two lines and offer advantages at three, consistently across all list layouts.
+- The slider savings badge sits above the product title.
+- Components size themselves to their content. Do not pin `VoucherBenefitsView` to a fixed height, or it will clip at larger text sizes (see Component Sizing).
+
+**Fixed**
+- Text scales with the system text size (Larger Text accessibility setting), for the system font and custom font families alike.
+- Slider and carousel cards grow to fit their content instead of being clipped to a fixed height.
+- Product titles and offer advantages follow their own theme text styles.
+- The banner no longer crashes when its Lottie or SVG artwork fails to download.
+
+---
+
+### 1.4.0 (2026-06-24)
+
+**New**
+- Font size, weight and line height applied automatically from the Sovendus theme configuration for your placement. Bundle all weights of your custom font family and register them in `UIAppFonts` so every requested weight renders (see Custom Font Configuration).
+
+---
+
+### 1.3.1 (2026-05-27)
+
+**Fixed**
+- CTA button distorted when the theme provided a corner radius larger than half the button height.
+
+---
+
+### 1.3.0 (2026-05-06)
+
+**New**
+- `customFontFamily: String?` on `SovendusConfig` to set a custom font by family name (for example `"Poppins"`). Weights are resolved from the family's registered faces, so bundle at least Regular, Medium and Bold.
+
+**Changed**
+- `SovendusConfig.customFont` is no longer a stored property. Passing `customFont: UIFont` still compiles through a convenience initializer, and only the family name is used. Code that reads `config.customFont` must switch to `config.customFontFamily`.
+
+**Fixed**
+- Font weight not applied when using a custom font family.
+- Multiline banner titles are center-aligned.
+
+---
+
+### 1.2.0 (2026-04-27)
+
+**New**
+- `hasConsent: Bool?` on `ConsumerData` for forwarding the customer's privacy consent state. Leave unset when consent is unknown.
+- Carousel benefits layout, automatically rendered when configured by Sovendus for your placement.
+- Card theming for product list cards, applied automatically based on backend theme configuration.
+
+**Fixed**
+- Banner not shown when no banner position was configured.
+- Image alignment, carousel scale effect and savings badge paddings in the benefits list.
+
+---
+
+### 1.1.1 (2026-03-17)
+
+**Fixed**
+- SVG banner not rendering on iOS 18 and earlier.
+- Extra padding removed from `VoucherBenefitsView`.
+
+---
+
+### 1.1.0 (2026-03-12)
+
+**New**
+- Vertical list layout for benefits, automatically rendered when configured by Sovendus for your placement.
+- Inline and card banner layouts, automatically rendered when configured by Sovendus for your placement.
+- Gradient backgrounds for containers, product boxes, buttons, savings badges and banners, applied automatically based on backend theme configuration.
+- Multiple placements: each `VoucherBenefitsView` instance with a unique `trafficMediumNumber` triggers its own API call, so Sovendus can configure content and layout per placement.
+- Custom font support via the optional `customFont` parameter on `SovendusConfig`. Pass any `UIFont` to apply your app's typography. Falls back to the system font when omitted.
+- Dark mode assets for banners and Lottie animations, served automatically when configured.
+
+**Fixed**
+- Savings badge font size in the benefits list.
+
+---
+
+### 1.0.4 (2026-01-05)
+
+**Fixed**
+- Button heights and paddings, button border glitch, font and layout fixes.
+- Banner text color follows its own theme color instead of the additional-text color.
+
+---
+
+### 1.0.3 (2025-11-26)
+
+**New**
+- Markdown formatting in benefits list titles.
+
+**Improved**
+- More comprehensive API error handling.
+
+---
+
+### 1.0.2 (2025-11-25)
+
+**New**
+- Requests are retried once on network errors.
+
+**Fixed**
+- Bullet point indentation and alignment of benefits list advantages.
+
+---
+
+### 1.0.1 (2025-11-20)
+
+**Fixed**
+- Markdown rendering issues, info button close style and spacing between title and advantages.
+
+---
+
+### 1.0.0 (2025-11-20)
+
+Initial public release of the Sovendus SDK for iOS.

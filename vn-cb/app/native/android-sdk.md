@@ -599,3 +599,123 @@ medium number via the backend.
 ---
 
 **Questions?** Contact your Sovendus integration specialist for support.
+
+---
+
+## Changelog
+
+### 1.4.1 (2026-09-28)
+
+**Fixed**
+- Crash while scrolling a screen that shows an animated SVG banner (introduced in 1.4.0).
+- Animated SVG rendering is limited to the banner. Product cards render SVG artwork statically again.
+
+---
+
+### 1.4.0 (2026-08-24)
+
+**Changed**
+- Slider layout shows offer advantages inline in each card; the info button and its overlay were removed. Applied automatically for placements using the slider layout.
+- Cards and buttons grow to fit their content instead of using fixed heights, so enlarged system font sizes and theme font sizes no longer clip text. Give the component an unbounded height (`wrap_content`, no `Modifier.height(...)`) and avoid fixed-height parents (see Component Sizing).
+- The SDK manifest now declares the `INTERNET` permission explicitly. No action required.
+
+**Deprecated**
+- `onInfoClick` on `StandaloneComposables.VoucherBenefits` and `StandaloneComposables.BenefitsList`. The callback is never invoked; drop the argument and use the overload without it.
+
+**Fixed**
+- Animated SVG banners animate instead of showing a single frozen frame.
+- Artwork no longer reloads on every recomposition.
+
+---
+
+### 1.3.0 (2026-06-24)
+
+**New**
+- Font size, weight and line height applied automatically from the Sovendus theme configuration for your placement. Bundle all weights of your custom font family so every requested weight renders (see Custom Font Configuration).
+
+**Fixed**
+- Carousel title and savings badge follow the theme typography.
+- Consistent CTA button height across all layouts, with labels autosizing to fit.
+
+---
+
+### 1.2.1 (2026-04-27)
+
+**New**
+- `hasConsent: Boolean?` on `ConsumerData` for forwarding the customer's privacy consent state. Leave unset when consent is unknown.
+- Carousel benefits layout, automatically rendered when configured by Sovendus for your placement.
+- Card theming for product list cards, applied automatically based on backend theme configuration.
+
+---
+
+### 1.2.0 (2026-04-27)
+
+Superseded by 1.2.1, released the same day. Use 1.2.1 or later.
+
+---
+
+### 1.1.0 (2026-03-12)
+
+**New**
+- Vertical list layout for benefits, automatically rendered when configured by Sovendus for your placement.
+- Inline and card banner layouts, automatically rendered when configured by Sovendus for your placement.
+- Gradient backgrounds for containers, buttons, savings badges and slider bars, applied automatically based on backend theme configuration.
+- Multiple placements: each `VoucherBenefits` instance with a unique `trafficMediumNumber` triggers its own API call, so Sovendus can configure content and layout per placement.
+- Custom font support via `SovendusConfig.Builder().fontFamily(FontFamily)`. Pass any `FontFamily` to apply your app's typography. Falls back to the system font (Roboto) when omitted.
+- Dark mode assets for banners and Lottie animations, served automatically when configured.
+
+**Changed**
+- Minimum Android version lowered from API 26 (Android 8.0) to API 24 (Android 7.0).
+
+**Fixed**
+- Minor bug fixes and style adjustments.
+
+---
+
+### 1.0.5 (2025-12-15)
+
+**Changed**
+- Internal improvements.
+
+---
+
+### 1.0.4 (2025-12-15)
+
+**Fixed**
+- Icon button size, media image scaling and button height alignment.
+
+---
+
+### 1.0.3 (2025-11-28)
+
+**Changed**
+- Benefits list refinements: markdown asterisks are stripped from titles and the list scrolls as a proper horizontal list.
+
+---
+
+### 1.0.2 (2025-11-25)
+
+**Changed**
+- Request timeout handling adjusted.
+
+---
+
+### 1.0.1 (2025-11-21)
+
+**New**
+- Dashed divider on benefit cards.
+- Bold markdown text rendering.
+
+**Changed**
+- Artifact renamed to `com.sovendus:android-sdk`.
+
+**Fixed**
+- Offer advantages text formatting.
+- Theme colors parsed in the correct RGBA order.
+- Footer link padding, and rendering when the response contains only a banner or only a list.
+
+---
+
+### 1.0.0 (2025-11-11)
+
+Initial public release of the Sovendus SDK for Android.
